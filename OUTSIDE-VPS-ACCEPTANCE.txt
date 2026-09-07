@@ -1,0 +1,36 @@
+GANI OUTSIDE-VPS ACCEPTANCE MATRIX
+
+CORE CUSTOMER FLOWS
+[ ] Home opens without network after first cache
+[ ] Discover/marketplace can render local demo data
+[ ] Verify form has empty/loading/success/error states
+[ ] Dashboard has empty/loading/populated/error states
+[ ] Profile renders and persists harmless local preferences
+[ ] Notifications support unread/read states
+[ ] Back/forward navigation preserves meaningful context
+[ ] Bottom navigation never hides page content
+
+DEVICE/UI
+[ ] 320px phone width
+[ ] 360px phone width
+[ ] 390-430px phone width
+[ ] tablet portrait/landscape
+[ ] desktop
+[ ] keyboard focus visible
+[ ] reduced motion respected
+[ ] text inputs do not trigger unwanted mobile zoom
+[ ] long Somali labels wrap safely
+
+INSTALL/OFFLINE
+[ ] manifest valid
+[ ] icons available
+[ ] service worker cache version valid
+[ ] offline app shell
+[ ] Android PWA install path
+[ ] iPhone Add to Home Screen guidance
+[ ] desktop install guidance
+
+SECURITY BOUNDARY
+[ ] no passwords/API keys in frontend
+[ ] production backend URL remains configurable
+[ ] privileged/admin tools are not exposed as customer controls

@@ -1,0 +1,47 @@
+{
+  "version": "1.0",
+  "base": "/api/v1",
+  "authentication": "production backend session/token; never embed credentials in frontend",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "purpose": "backend readiness"
+    },
+    {
+      "method": "GET",
+      "path": "/me",
+      "purpose": "customer profile"
+    },
+    {
+      "method": "GET",
+      "path": "/accounts",
+      "purpose": "customer-visible accounts/listings"
+    },
+    {
+      "method": "GET",
+      "path": "/notifications",
+      "purpose": "customer notifications"
+    },
+    {
+      "method": "POST",
+      "path": "/notifications/{id}/read",
+      "purpose": "mark notification read"
+    },
+    {
+      "method": "GET",
+      "path": "/marketplace",
+      "purpose": "marketplace discovery"
+    },
+    {
+      "method": "POST",
+      "path": "/verify",
+      "purpose": "submit verification request"
+    }
+  ],
+  "excluded": [
+    "API keys in browser",
+    "password storage in frontend",
+    "live trading/order execution"
+  ]
+}

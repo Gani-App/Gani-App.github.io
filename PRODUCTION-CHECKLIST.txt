@@ -1,0 +1,17 @@
+GANI PRODUCTION RELEASE CHECKLIST
+
+[ ] Serve the entire folder from one HTTPS origin
+[ ] /index.html returns 200
+[ ] /manifest.webmanifest returns 200 with correct content type
+[ ] /sw.js returns 200 and is not aggressively cached
+[ ] icon-192.png and icon-512.png return 200
+[ ] Android: install prompt / Add to Home Screen tested
+[ ] Installed app launches without browser chrome
+[ ] Offline reload shows cached application shell
+[ ] Phone portrait layout tested
+[ ] Tablet layout tested
+[ ] Desktop layout tested
+[ ] Light/dark appearance checked
+[ ] Raadi → Xaqiiji → Barbar dhig → Maamul → Caawimo navigation checked
+[ ] Real backend/provider endpoints tested separately before marking them live
+[ ] No secrets embedded in frontend files

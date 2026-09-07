@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gani-app.github.io/sitemap.xml

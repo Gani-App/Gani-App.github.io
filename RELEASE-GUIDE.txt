@@ -1,0 +1,19 @@
+GANI v24 RELEASE BUNDLE
+
+FASTEST SAFE PATH
+1. Keep this bundle unchanged as the release artifact.
+2. Deploy static app files to a dedicated HTTPS web root.
+3. Configure the real domain at deployment time, not inside the artifact.
+4. Run verify-release.py before upload and after extraction.
+5. Test install.html on Android/iPhone/desktop.
+6. Connect only the production backend URLs that actually exist.
+7. Never place API keys/passwords inside browser JavaScript.
+
+ACCEPTANCE
+- App opens over HTTPS
+- Manifest/icons load
+- Service worker registers
+- Install flow is available where supported
+- Offline shell reloads
+- Mobile/tablet/desktop navigation works
+- No secret is embedded in frontend

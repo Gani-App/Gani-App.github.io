@@ -1,0 +1,10 @@
+GANI v21 FINAL FRONTEND
+
+DEPLOYMENT
+Upload the complete folder to one HTTPS web root without renaming the relative files.
+Open index.html through the HTTPS origin.
+Test install, offline reload, navigation, mobile viewport and desktop viewport.
+
+IMPORTANT
+content:// and file:// are preview-only. PWA installation/service workers require HTTPS (localhost is also accepted for development).
+Production provider/account data is not simulated by this frontend package.

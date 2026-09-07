@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="so">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#020713">
+<title>GANI</title>
+<meta name="description" content="Download or install GANI from the official GANI website.">
+<link rel="canonical" href="https://gani-app.github.io/install.html">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#010713;color:#f7fbff;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}body{min-height:100vh;display:grid;place-items:center;overflow-x:hidden;background:radial-gradient(circle at 50% 12%,#0a4c8d 0,#06264b 22%,#020b1a 52%,#010713 78%)}body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(118deg,transparent 15%,rgba(0,198,255,.08) 48%,transparent 72%)}main{width:min(100%,720px);padding:24px 14px 42px}.shell{position:relative;overflow:hidden;border:1px solid rgba(61,198,255,.28);border-radius:30px;padding:30px 20px 22px;background:linear-gradient(180deg,rgba(7,27,55,.9),rgba(2,10,25,.96));box-shadow:0 30px 80px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.05)}.brand{display:flex;align-items:center;gap:14px;margin-bottom:24px}.brand img{width:66px;height:66px;border-radius:18px;box-shadow:0 0 30px rgba(0,185,255,.32)}.brand b{font-size:31px;letter-spacing:.08em}.brand small{display:block;color:#79d9ff;font-size:10px;letter-spacing:.24em;margin-top:2px}.eyebrow{color:#63d6ff;font-weight:900;font-size:11px;letter-spacing:.16em;margin:0 0 10px}h1{font-size:clamp(34px,8vw,54px);line-height:1.02;margin:0 0 13px;letter-spacing:-.04em}h1 em{font-style:normal;color:#58d7ff}p{color:#a9bdd2;line-height:1.58;margin:0 0 20px}.download,.open{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:60px;border:0;border-radius:17px;background:linear-gradient(135deg,#04bff5,#0877ff);color:white;text-decoration:none;font-size:17px;font-weight:900;box-shadow:0 12px 34px rgba(0,154,255,.28);cursor:pointer}.download[hidden],.open[hidden]{display:none}.secondary{display:flex;align-items:center;justify-content:center;width:100%;min-height:52px;margin-top:11px;border:1px solid rgba(106,203,255,.24);border-radius:17px;background:rgba(8,28,54,.65);color:#eaf8ff;text-decoration:none;font-weight:800}.device{margin:17px 0 0;padding:14px 15px;border-radius:15px;background:rgba(3,17,36,.78);border:1px solid rgba(88,184,255,.14);color:#8da9c2;font-size:13px;line-height:1.5}.device b{color:#dff7ff}.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.trust span{text-align:center;padding:11px 5px;border-radius:13px;background:rgba(6,23,45,.7);color:#8fb2cc;font-size:11px}.trust b{display:block;color:#e8f9ff;font-size:12px;margin-bottom:2px}.foot{text-align:center;margin:18px 0 0;color:#55728c;font-size:11px}@media(max-width:480px){main{padding:14px 10px 30px}.shell{padding:24px 16px 19px;border-radius:24px}.brand img{width:56px;height:56px}.trust{grid-template-columns:1fr}}
+</style>
+</head>
+<body><main><section class="shell">
+<div class="brand"><img src="assets/gani-official-v34.png" alt="GANI"><div><b>GANI</b></div></div>
+<p class="eyebrow">OFFICIAL GANI DOWNLOAD</p>
+<h1>Hal link.<br><em>Qalab kasta.</em></h1>
+<p>Taabo badhanka. GANI wuxuu qalabkaaga siinayaa jidka ugu habboon ee isla website-kan.</p>
+<button class="download" id="pwaInstall">Install GANI ↓</button>
+<a class="open" id="openGani" href="./" hidden>Open GANI →</a>
+<a class="secondary" id="androidDownload" href="download/GANI-Android.apk" download="GANI-Android.apk" hidden>Download Android APK</a>
+<a class="secondary" id="directWeb" href="./">Use GANI on the Web</a>
+<div class="device" id="deviceInfo"><b>Checking your device…</b></div>
+<div class="trust"><span><b>Official</b>GANI source</span><span><b>HTTPS</b>Secure delivery</span><span><b>Global</b>Web fallback</span></div>
+<p class="foot">GANI</p>
+</section></main>
+<script>
+let deferredPrompt=null, apkReady=false;
+const ua=navigator.userAgent||'';
+const android=/Android/i.test(ua), ios=/iPhone|iPad|iPod/i.test(ua);
+const apk=document.getElementById('androidDownload'), install=document.getElementById('pwaInstall'), open=document.getElementById('openGani'), info=document.getElementById('deviceInfo');
+function setMode(){
+ if(ios){install.hidden=false;open.hidden=false;apk.hidden=true;install.textContent='How to install GANI ↓';info.innerHTML='<b>iPhone / iPad.</b> GANI wuxuu isla website-kan uga shaqaynayaa web app ahaan. Safari-ga ka dooro Share → Add to Home Screen.';return}
+ install.hidden=false;open.hidden=true;apk.hidden=!(android&&apkReady);
+ info.innerHTML=deferredPrompt?'<b>Installable device.</b> Taabo Install GANI si browser-ku ugu daro app-ka qalabkan.':'<b>GANI PWA.</b> Taabo Install GANI; haddii browser-ku uusan soo bandhigin prompt, isticmaal menu-ga browser-ka oo dooro Install app / Add to Home screen.';
+}
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;setMode()});
+install.addEventListener('click',async()=>{if(!deferredPrompt){info.innerHTML='<b>Install GANI.</b> Fur menu-ga browser-ka oo dooro Install app ama Add to Home screen, kadib ku noqo GANI.';return}await deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;setMode()});
+fetch('download/GANI-Android.apk',{method:'HEAD',cache:'no-store'}).then(r=>{apkReady=r.ok;setMode()}).catch(()=>setMode());
+setMode();
+</script></body></html>

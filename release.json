@@ -1,0 +1,37 @@
+{
+  "product": "GANI",
+  "release": "2026.09-universal-functional-v40",
+  "status": "UNIVERSAL_DOWNLOAD_READY",
+  "version": "40.0.0",
+  "android_version_code": 40,
+  "surfaces": [
+    "HTTPS Web/PWA",
+    "Direct Android APK from GANI website",
+    "iPhone/iPad Web/PWA",
+    "Desktop Web/PWA"
+  ],
+  "branding": [
+    "symbol-only launcher icon",
+    "adaptive Android icon",
+    "dark branded splash",
+    "unified navy/cyan/gold design system"
+  ],
+  "customer_experience": [
+    "Home",
+    "Trading/Discover",
+    "Analytics/Dashboard",
+    "Tools/Verify",
+    "Education",
+    "Support",
+    "Account/Profile",
+    "Services",
+    "Customer Workspace",
+    "Partner Portal",
+    "Rules and Agreements",
+    "Operations"
+  ],
+  "data_policy": "REAL API only when configured; otherwise clearly identified demo/local mode",
+  "public_install_policy": "One official GANI website entry point. The standards-based Web/PWA install is primary on supported browsers; the Android APK is a secondary website fallback.",
+  "store_gate": "Store publication still requires the publisher account, signing/review requirements and submission on the chosen authorized store.",
+  "pwa_gate": "Deploy the web directory over HTTPS for installable browser/PWA distribution."
+}

@@ -1,0 +1,13 @@
+GANI COMPLETE VISUAL SYSTEM V3
+
+Design goals implemented:
+- One visual language across desktop, tablet, mobile, Android web bundle and iOS web bundle.
+- Dark navy foundation, controlled electric-blue emphasis, cyan information accents and restrained gold brand accents.
+- Strong visual hierarchy: primary action first, status second, detail third.
+- Task-led navigation: Home, Trading, Analytics, Tools, Education, Support, Account.
+- Visual cues use consistent icons, spacing, cards, pills, headings and state colors.
+- Mobile is designed as an app view, not a squeezed desktop webpage.
+- Desktop uses broad composition and restrained density.
+- Demo/local data is labelled as demo; real mode only appears when the configured API mode reports REAL.
+- No live order execution controls are provided by the customer frontend.
+- Native vertical scrolling is preserved; no touch-action or overflow-y locking hacks.

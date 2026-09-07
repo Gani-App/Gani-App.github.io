@@ -1,0 +1,76 @@
+{
+  "id": "./",
+  "name": "GANI",
+  "short_name": "GANI",
+  "description": "GANI — adeegyada, suuqyada, xaqiijinta, waxbarashada, taageerada iyo maamulka account-ka oo hal meel ku wada jira.",
+  "lang": "so",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "any",
+  "background_color": "#010713",
+  "theme_color": "#020a17",
+  "categories": [
+    "business",
+    "productivity",
+    "finance"
+  ],
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Trading",
+      "short_name": "Trading",
+      "url": "./index.html#discover"
+    },
+    {
+      "name": "Analytics",
+      "short_name": "Analytics",
+      "url": "./index.html#dashboard"
+    },
+    {
+      "name": "Tools",
+      "short_name": "Tools",
+      "url": "./index.html#verify"
+    },
+    {
+      "name": "Account",
+      "short_name": "Account",
+      "url": "./index.html#profile"
+    },
+    {
+      "name": "Xarunta Macmiilka",
+      "short_name": "Xarunta",
+      "url": "./index.html#workspace"
+    },
+    {
+      "name": "Adeegyada GANI",
+      "short_name": "Adeegyada",
+      "url": "./index.html#services"
+    }
+  ]
+}
