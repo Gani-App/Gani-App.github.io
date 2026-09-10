@@ -181,10 +181,15 @@ function bind(){
   $('#frontFaceStart')?.addEventListener('click',()=>{
     const frontFace=$('#ganiFrontFace');
     document.body.classList.remove('front-face-pending');
-    frontFace?.setAttribute('aria-hidden','true');
-    if(frontFace)frontFace.inert=true;
-    // Entering the product always resolves to the real home route, including a
-    // shareable hash, instead of leaving the visitor on an overlay-only state.
+    document.documentElement.style.overflow='';
+    document.body.style.overflow='';
+    if(frontFace){
+      frontFace.setAttribute('aria-hidden','true');
+      frontFace.hidden=true;
+      frontFace.inert=true;
+      frontFace.style.display='none';
+      frontFace.style.pointerEvents='none';
+    }
     show('home',true);
     $('#homePrimaryExplore')?.focus({preventScroll:true});
   });

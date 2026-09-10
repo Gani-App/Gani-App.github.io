@@ -241,3 +241,11 @@ body.front-face-pending { min-width: 0; isolation: isolate; overscroll-behavior:
   .front-face-pending .front-face-tagline,
   .front-face-pending .front-face-tagline span { background: none; color: var(--front-gold); -webkit-text-fill-color: initial; }
 }
+
+/* Production front-face dismissal failsafe */
+.gani-front-face[aria-hidden="true"],
+.gani-front-face[hidden] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
