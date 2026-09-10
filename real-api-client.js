@@ -191,6 +191,35 @@
           reference: reference.trim()
         }
       });
+    },
+
+    terminalConnect(sessionId) {
+      if (typeof sessionId !== "string" || !sessionId.trim()) {
+        return Promise.reject(new GANIAPIError("Terminal session id is required", {code: "invalid_argument"}));
+      }
+      return request("terminal/sessions", {
+        method: "POST",
+        body: {session_id: sessionId.trim()}
+      });
+    },
+
+    terminalExecute(sessionId, command) {
+      if (typeof sessionId !== "string" || !sessionId.trim() || typeof command !== "string" || !command.trim()) {
+        return Promise.reject(new GANIAPIError("Terminal session and command are required", {code: "invalid_argument"}));
+      }
+      return request("terminal/sessions/" + encodeURIComponent(sessionId.trim()) + "/commands", {
+        method: "POST",
+        body: {command: command}
+      });
+    },
+
+    terminalInterrupt(sessionId) {
+      if (typeof sessionId !== "string" || !sessionId.trim()) {
+        return Promise.reject(new GANIAPIError("Terminal session id is required", {code: "invalid_argument"}));
+      }
+      return request("terminal/sessions/" + encodeURIComponent(sessionId.trim()) + "/interrupt", {
+        method: "POST"
+      });
     }
   };
 

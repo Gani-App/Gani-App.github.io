@@ -1,0 +1,243 @@
+:root {
+  --front-black: #000;
+  --front-gold-shadow: #74470b;
+  --front-gold: #d69b2f;
+  --front-gold-mid: #edbd52;
+  --front-gold-light: #fff3b8;
+  --front-ivory: #f2eee5;
+}
+
+html:has(body.front-face-pending),
+body.front-face-pending {
+  overflow: hidden !important;
+  background: var(--front-black) !important;
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+body.front-face-pending { min-width: 0; isolation: isolate; overscroll-behavior: none; }
+.front-face-pending .ambient,
+.front-face-pending .app-header,
+.front-face-pending main,
+.front-face-pending .bottom-nav,
+.front-face-pending > footer,
+.front-face-pending .install-dock { display: none !important; }
+
+.front-face-pending .gani-front-face {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+  padding: max(24px, env(safe-area-inset-top)) max(16px, 5vw) max(24px, env(safe-area-inset-bottom));
+  overflow: auto;
+  background: #000 !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  isolation: isolate;
+  overscroll-behavior: contain;
+}
+
+.front-face-pending .gani-front-face::before,
+.front-face-pending .front-face-inner::before,
+.front-face-pending .front-face-inner::after { content: none !important; }
+.front-face-pending .front-face-inner,
+.front-face-pending .front-face-brand,
+.front-face-pending .front-face-copy,
+.front-face-pending .front-face-actions {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.front-face-pending .front-face-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100%, 420px);
+  min-width: 0;
+  margin: auto;
+  text-align: center;
+}
+.front-face-pending .front-face-brand { display: flex; flex-direction: column; align-items: center; min-width: 0; }
+
+/* The supplied asset is alpha only. Both painted layers share its exact mask,
+   so the crown, lion, and G stay stationary while one polished highlight
+   travels across them. */
+.front-face-pending .front-face-mark {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  width: clamp(154px, 22vw, 220px);
+  aspect-ratio: 1046 / 1504;
+  overflow: visible;
+  contain: layout paint;
+  isolation: isolate;
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  animation: none !important;
+  backface-visibility: hidden;
+}
+.front-face-pending .front-face-mark img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  opacity: 0 !important;
+  background: transparent !important;
+}
+
+@supports (mask-image: url("assets/gani-front-face-crowned-emblem.png")) or (-webkit-mask-image: url("assets/gani-front-face-crowned-emblem.png")) {
+  .front-face-pending .front-face-mark::before,
+  .front-face-pending .front-face-mark::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border: 0 !important;
+    box-shadow: none !important;
+    -webkit-mask-image: url("assets/gani-front-face-crowned-emblem.png");
+    mask-image: url("assets/gani-front-face-crowned-emblem.png");
+    -webkit-mask-mode: alpha;
+    mask-mode: alpha;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+  .front-face-pending .front-face-mark::before {
+    z-index: 2;
+    background: linear-gradient(156deg, #fffbe2 0%, var(--front-gold-light) 12%, var(--front-gold-mid) 31%, #9b5d0d 49%, #f9d671 68%, var(--front-gold-shadow) 84%, #ffeaa0 100%);
+    filter: contrast(1.22) saturate(1.08);
+  }
+  .front-face-pending .front-face-mark::after {
+    z-index: 3;
+    background: linear-gradient(156deg, transparent 0%, transparent 42%, rgba(255, 255, 245, .95) 48%, rgba(255, 222, 137, .42) 51%, transparent 57%, transparent 100%);
+    background-size: 100% 320%;
+    background-position: center -160%;
+    background-repeat: no-repeat;
+    opacity: .28;
+    mix-blend-mode: screen;
+    animation: front-face-reflection 30s cubic-bezier(.45, .55, .55, .45) 1s infinite;
+    will-change: background-position;
+  }
+}
+
+@keyframes front-face-reflection {
+  0%, 24% { background-position: center -160%; }
+  45% { background-position: center -54%; }
+  63% { background-position: center 48%; }
+  80%, 100% { background-position: center 160%; }
+}
+@keyframes front-face-text-shimmer {
+  0%, 86% { background-position: 125% 0; }
+  97%, 100% { background-position: -25% 0; }
+}
+
+.front-face-pending .front-face-brand > span,
+.front-face-pending .front-face-tagline,
+.front-face-pending .front-face-tagline span {
+  color: var(--front-gold);
+  background: linear-gradient(108deg, var(--front-gold-shadow), #d29b30 24%, var(--front-gold-light) 42%, #a96816 58%, #f8d77b 78%, var(--front-gold-shadow));
+  background-size: 240% 100%;
+  background-position: 125% 0;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  animation: front-face-text-shimmer 84s ease-in-out infinite;
+}
+.front-face-pending .front-face-brand > span { margin-top: clamp(9px, 1.6vh, 15px); padding-left: .2em; font: 700 clamp(2rem, 7vw, 3.1rem) / 1 Georgia, "Times New Roman", serif; letter-spacing: .2em; white-space: nowrap; }
+.front-face-pending .front-face-copy { margin-top: clamp(15px, 2.4vh, 22px); }
+.front-face-pending .front-face-tagline { margin: 0; font-size: clamp(1rem, 2.8vw, 1.4rem); font-weight: 800; line-height: 1.22; letter-spacing: .12em; }
+.front-face-pending .front-face-support { margin: clamp(12px, 1.8vh, 17px) 0 0; color: var(--front-ivory); font-size: clamp(.78rem, 1.7vw, .96rem); font-weight: 500; line-height: 1.5; }
+.front-face-pending .front-face-pillars { margin: clamp(8px, 1.3vh, 11px) 0 0; color: #c9b78f; font-size: clamp(.61rem, 1.45vw, .77rem); font-weight: 700; line-height: 1.4; letter-spacing: .08em; }
+
+.front-face-pending .front-face-actions { display: flex; flex-direction: column; align-items: center; width: min(100%, 318px); margin-top: clamp(24px, 3.8vh, 36px); gap: 10px; }
+.front-face-pending .front-face-start,
+.front-face-pending .front-face-signin { box-sizing: border-box; width: 100%; min-height: 54px; padding: 0 24px; border-radius: 14px; font-size: 1rem; font-weight: 800; letter-spacing: .01em; touch-action: manipulation; }
+.front-face-pending .front-face-start { border: 1px solid rgba(255, 225, 153, .72); background: linear-gradient(180deg, #ffeba9, #e1ae48 50%, #b97820); color: #211607; box-shadow: inset 0 1px rgba(255, 255, 255, .64), 0 4px 14px rgba(116, 73, 14, .1); transition: filter .2s; }
+.front-face-pending .front-face-start:hover { filter: brightness(1.06); }
+.front-face-pending .front-face-start:active { filter: brightness(.98); }
+.front-face-pending .front-face-signin { border: 1px solid rgba(229, 187, 100, .58); background: transparent; color: #edcf82; cursor: not-allowed; opacity: .88; }
+.front-face-pending .front-face-signin:disabled { filter: none; }
+.front-face-pending .front-face-start:focus-visible,
+.front-face-pending .front-face-signin:focus-visible { outline: 2px solid #f7d989; outline-offset: 4px; }
+
+@media (max-width: 560px) {
+  .front-face-pending .front-face-mark { width: clamp(154px, 51vw, 214px); }
+  .front-face-pending .front-face-brand > span { font-size: clamp(1.86rem, 9.5vw, 3rem); letter-spacing: .18em; }
+  .front-face-pending .front-face-tagline { font-size: clamp(.94rem, 4.1vw, 1.26rem); letter-spacing: .09em; }
+  .front-face-pending .front-face-support { font-size: .79rem; }
+  .front-face-pending .front-face-pillars { font-size: .6rem; letter-spacing: .055em; }
+  .front-face-pending .front-face-actions { width: min(100%, 304px); }
+}
+@media (max-width: 360px), (max-height: 620px) {
+  .front-face-pending .gani-front-face { padding-inline: 12px; }
+  .front-face-pending .front-face-mark { width: clamp(136px, 47vw, 186px); }
+  .front-face-pending .front-face-copy { margin-top: 10px; }
+  .front-face-pending .front-face-support { margin-top: 8px; }
+  .front-face-pending .front-face-pillars { margin-top: 6px; }
+  .front-face-pending .front-face-actions { margin-top: 15px; gap: 8px; }
+  .front-face-pending .front-face-start,
+  .front-face-pending .front-face-signin { min-height: 45px; }
+}
+@media (max-width: 330px) {
+  .front-face-pending .front-face-mark { width: 154px; }
+  .front-face-pending .front-face-brand > span { font-size: 1.76rem; }
+  .front-face-pending .front-face-tagline { font-size: .9rem; }
+  .front-face-pending .front-face-support { font-size: .71rem; }
+  .front-face-pending .front-face-pillars { font-size: .54rem; letter-spacing: .03em; }
+  .front-face-pending .front-face-actions { width: min(100%, 282px); margin-top: 13px; }
+  .front-face-pending .front-face-inner { width: min(100%, 298px); }
+}
+@media (max-height: 600px) {
+  .front-face-pending .gani-front-face { align-items: start; }
+  .front-face-pending .front-face-inner { margin-block: 10px auto; }
+  .front-face-pending .front-face-mark { width: clamp(128px, 28vh, 174px); }
+  .front-face-pending .front-face-brand > span { margin-top: 7px; }
+  .front-face-pending .front-face-copy { margin-top: 9px; }
+  .front-face-pending .front-face-actions { margin-top: 13px; gap: 7px; }
+  .front-face-pending .front-face-start,
+  .front-face-pending .front-face-signin { min-height: 42px; }
+}
+@media (min-width: 700px) {
+  .front-face-pending .front-face-mark { width: clamp(218px, 20vw, 252px); }
+  .front-face-pending .front-face-inner { width: min(100%, 470px); }
+  .front-face-pending .front-face-actions { width: min(100%, 340px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .front-face-pending *,
+  .front-face-pending *::before,
+  .front-face-pending *::after { animation: none !important; transition: none !important; }
+  .front-face-pending .front-face-mark::after { opacity: .16 !important; background-position: center -160% !important; }
+  .front-face-pending .front-face-brand > span,
+  .front-face-pending .front-face-tagline,
+  .front-face-pending .front-face-tagline span { background-position: 50% 0; }
+}
+@supports not ((mask-image: url("assets/gani-front-face-crowned-emblem.png")) or (-webkit-mask-image: url("assets/gani-front-face-crowned-emblem.png"))) {
+  .front-face-pending .front-face-mark img { opacity: 1 !important; filter: contrast(1.08) saturate(.96); }
+}
+@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+  .front-face-pending .front-face-brand > span,
+  .front-face-pending .front-face-tagline,
+  .front-face-pending .front-face-tagline span { background: none; color: var(--front-gold); -webkit-text-fill-color: initial; }
+}

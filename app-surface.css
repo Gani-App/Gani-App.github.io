@@ -1,0 +1,110 @@
+/* GANI owner-visible surface: one black/gold shell across every route. */
+:root {
+  --gani-surface: #050607;
+  --gani-surface-deep: #020303;
+  --gani-surface-line: rgba(217, 174, 88, .18);
+}
+html, body { background: var(--gani-surface) !important; }
+body {
+  background: radial-gradient(circle at 86% 7%, rgba(217,174,88,.08), transparent 28%),
+    linear-gradient(180deg, var(--gani-surface-deep), var(--gani-surface) 48%, #080909) !important;
+}
+.ambient { display: none !important; }
+.app-header { background: rgba(5,6,7,.96) !important; border-bottom-color: var(--gani-surface-line) !important; }
+.brand img { filter: drop-shadow(0 0 16px rgba(217,174,88,.24)) !important; }
+.desktop-nav button:after { background: linear-gradient(90deg,#d9ae58,#f3d88b) !important; box-shadow: 0 0 14px rgba(217,174,88,.34) !important; }
+main, .screen { background: transparent !important; }
+.home-screen, #markets, .home-screen .hero-card, #markets .page-intro, #markets .market-grid, .mobile-app-home { background-color: transparent !important; }
+.home-screen .hero-card, #markets .page-intro { border-color: var(--gani-surface-line) !important; box-shadow: none !important; }
+.home-screen .mission-panel, .home-screen .mission-metrics article, #markets .mission-panel, #markets .market-card { background: linear-gradient(145deg, #151414, #090a0a) !important; border-color: var(--gani-surface-line) !important; }
+.home-screen .mission-quick-grid button, #markets .mission-toolbar input, #markets .market-controls select, #markets .filter-toggle { background: #0c0d0d !important; border-color: var(--gani-surface-line) !important; }
+.round-btn, .text-btn, .mobile-menu, .search-panel, .notice-panel, .search-shell { background-color: #0a0b0c !important; border-color: var(--gani-surface-line) !important; }
+.primary { box-shadow: 0 10px 28px rgba(0,0,0,.3), inset 0 1px rgba(255,255,255,.22); }
+
+/* Final owner-facing integration pass.  These selectors intentionally win over
+   the older blue platform layers loaded before this file. */
+:root {
+  --cyan: #d9ae58;
+  --blue: #d9ae58;
+  --blue2: #f3d88b;
+  --line: rgba(217,174,88,.18);
+  --line2: rgba(217,174,88,.42);
+}
+body,
+main,
+.screen,
+.mission-screen,
+.home-screen,
+.mobile-app-home {
+  background: transparent !important;
+}
+body {
+  background: radial-gradient(circle at 86% 7%, rgba(217,174,88,.07), transparent 28%),
+    linear-gradient(180deg, #020303 0, #050607 48%, #080909 100%) !important;
+}
+.app-header {
+  background: rgba(5,6,7,.98) !important;
+  border-bottom: 1px solid rgba(217,174,88,.18) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.22) !important;
+}
+.app-header .brand img,
+body>footer .brand img {
+  border-radius: 0 !important;
+  filter: drop-shadow(0 0 12px rgba(217,174,88,.2)) !important;
+}
+.app-header .brand img { width: 42px; height: 52px; }
+.desktop-nav button,
+.bottom-nav button { color: #9b9a96 !important; }
+.desktop-nav button:hover,
+.desktop-nav button.active,
+.bottom-nav button.active { color: #f3d88b !important; }
+.desktop-nav button:after { background: linear-gradient(90deg,#d9ae58,#f3d88b) !important; box-shadow: 0 0 12px rgba(217,174,88,.28) !important; }
+.round-btn,
+.text-btn,
+.secondary,
+.mobile-menu,
+.search-panel,
+.notice-panel,
+.search-shell,
+.bottom-nav {
+  background-color: #0a0b0c !important;
+  border-color: rgba(217,174,88,.18) !important;
+}
+.round-btn:hover,
+.text-btn:hover,
+.secondary:hover { background-color: #12110e !important; border-color: rgba(217,174,88,.42) !important; }
+.primary { background: linear-gradient(135deg,#f3d88b,#b9822e) !important; color: #171108 !important; box-shadow: 0 10px 28px rgba(0,0,0,.3), inset 0 1px rgba(255,255,255,.42) !important; }
+.secondary { color: #ead7a5 !important; background: rgba(217,174,88,.055) !important; }
+.secondary:hover { color: #fff1be !important; }
+button:focus-visible,
+input:focus-visible,
+a:focus-visible { outline-color: #f3d88b !important; }
+
+/* Home and Markets share the same quiet, black panel language. */
+.home-screen .mission-hero,
+.home-screen .mission-panel,
+.home-screen .mission-metrics article,
+.home-screen .mission-quick-grid button,
+#markets .mission-panel,
+#markets .market-card,
+#markets .mission-toolbar input,
+#markets .market-controls select,
+#markets .filter-toggle,
+.mission-screen .mission-panel,
+.mission-screen .more-grid button,
+.mission-screen .settings-list button {
+  background: linear-gradient(145deg, #151414, #090a0a) !important;
+  border-color: rgba(217,174,88,.18) !important;
+  box-shadow: none !important;
+}
+.home-screen .mission-hero { background: radial-gradient(circle at 80% 40%,rgba(217,174,88,.12),transparent 28%), linear-gradient(145deg,#151414,#090a0a) !important; }
+.mission-screen .market-card:before,
+.market-card:before { background: linear-gradient(90deg,transparent,#d9ae58,transparent) !important; }
+.market-card .tag,
+.mode-pill { background: rgba(217,174,88,.08) !important; color: #e2c77e !important; border-color: rgba(217,174,88,.2) !important; }
+.bottom-nav button.active { background: rgba(217,174,88,.1) !important; }
+@media (max-width:760px) {
+  .app-header { background: rgba(5,6,7,.99) !important; }
+  .app-header .brand img { width: 36px; height: 44px; }
+  .bottom-nav { background: rgba(10,11,12,.97) !important; box-shadow: 0 16px 45px rgba(0,0,0,.45) !important; }
+}

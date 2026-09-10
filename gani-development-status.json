@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.1",
+  "phase": "NOT_DELIVERED",
+  "status": "NOT_DELIVERED",
+  "result": "Product implementation changed; delivery bridge and owner visual review remain outstanding",
+  "telegramReporting": {
+    "status": "BLOCKED",
+    "reason_code": "TELEGRAM_NOT_CONFIGURED",
+    "reason": "No verified Telegram reporting integration or destination is configured for this job."
+  },
+  "jobReport": {
+    "state": "NOT_DELIVERED",
+    "TOTAL": 1,
+    "COMPLETE": 0,
+    "WORKING": 0,
+    "FAILED": 0,
+    "BLOCKED": 0,
+    "NOT_DELIVERED": 1,
+    "reason_code": "TERMUX_REVERSE_BRIDGE_UNAVAILABLE",
+    "reason": "CONTROL to Termux SSH check failed: socket Operation not permitted; connection to 127.0.0.1:18022 was unavailable."
+  },
+  "lastUpdate": "2026-09-10T20:14:06Z",
+  "currentJob": {
+    "id": "APP-VISUAL-DELIVERY-001",
+    "title": "APP-VISUAL-DELIVERY-001",
+    "phase": "NOT_DELIVERED",
+    "tests": [
+      {
+        "label": "Front Face interactions / stationary emblem",
+        "command": "node verify-interactions.js",
+        "result": "PASS"
+      },
+      {
+        "label": "Static release acceptance",
+        "command": "python3 verify-release.py",
+        "result": "PASS"
+      }
+    ]
+  },
+  "jobs": {
+    "queued": [],
+    "working": [],
+    "testing": [],
+    "fixing": [],
+    "completed": [],
+    "failed": [],
+    "blocked": [
+      {
+        "id": "next-screen-owner-gate",
+        "title": "NEXT_SCREEN",
+        "reason": "Blocked until explicit owner approval of Front Face"
+      },
+      {
+        "id": "termux-delivery",
+        "title": "CONTROL_TO_TERMUX_DELIVERY",
+        "reason_code": "TERMUX_REVERSE_BRIDGE_UNAVAILABLE",
+        "reason": "SSH check to 127.0.0.1:18022 failed with socket Operation not permitted"
+      }
+    ]
+  },
+  "blockers": [
+    {
+      "id": "owner-review",
+      "title": "Owner visual approval required",
+      "reason": "Front Face must be visually approved by the owner before the next screen"
+    },
+    {
+      "id": "termux-delivery",
+      "title": "Changed files not delivered",
+      "reason_code": "TERMUX_REVERSE_BRIDGE_UNAVAILABLE",
+      "reason": "Existing CONTROL to Termux SSH bridge is unavailable"
+    }
+  ],
+  "functionality": {
+    "real": [],
+    "demo": [],
+    "providerDependent": []
+  },
+  "truth": {
+    "product_progress": "OWNER_APPROVED_FOR_PRODUCTION_DEPLOYMENT",
+    "product_files_changed": [
+      "app-surface.css",
+      "index.html",
+      "404.html",
+      "app.js",
+      "mission-001.css",
+      "sw.js"
+    ],
+    "tests_passed": true,
+    "ready_for_owner_review": true
+  }
+}

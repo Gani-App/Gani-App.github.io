@@ -61,5 +61,8 @@
     marketplace: (...args) =>
       call("marketplace", ...args),
     verify: (...args) => call("verify", ...args)
+    ,terminalConnect: (...args) => call("terminalConnect", ...args)
+    ,terminalExecute: (...args) => call("terminalExecute", ...args)
+    ,terminalInterrupt: (...args) => call("terminalInterrupt", ...args)
   };
 })(window);

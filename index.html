@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="so">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#020713">
+<meta name="theme-color" content="#030303">
 <meta name="color-scheme" content="dark">
 <title>GANI</title>
 <meta name="description" content="GANI — adeegyada, suuqyada, xaqiijinta, waxbarashada, taageerada iyo maamulka account-ka oo hal meel ku wada jira.">
@@ -26,6 +26,10 @@
 <link rel="stylesheet" href="platform-v39.css">
 <link rel="stylesheet" href="platform-v40.css">
 <link rel="stylesheet" href="mission-001.css">
+<link rel="stylesheet" href="app-surface.css">
+<link rel="stylesheet" href="front-face-owner-lock.css?v=owner-front-face-10">
+<link rel="stylesheet" href="owner-mobile-repair.css?v=owner-mobile-repair-1">
+<link rel="stylesheet" href="front-face.css?v=front-face-owner-review-171">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"GANI","url":"https://gani-app.github.io/","logo":"https://gani-app.github.io/icon-512.png"}</script>
 <script src="gani-config.js" defer></script>
 <script src="mock-api.js" defer></script>
@@ -38,12 +42,30 @@
 <script src="platform-v29.js" defer></script>
 <script src="platform-v40.js" defer></script>
 </head>
-<body>
+<body class="front-face-pending">
 <div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<section class="gani-front-face" id="ganiFrontFace" role="dialog" tabindex="-1" aria-labelledby="frontFaceTitle" aria-describedby="frontFaceLead" aria-modal="true" aria-hidden="false">
+  <div class="front-face-inner">
+    <div class="front-face-brand" aria-label="GANI">
+      <div class="front-face-mark" data-owner-source="design-reference/gani-owner-master-logo.jpg" data-owner-asset="assets/gani-front-face-crowned-emblem.png" data-owner-supplied="true" role="img" aria-label="GANI crowned lion emblem"><img class="front-face-emblem" src="assets/gani-front-face-crowned-emblem.png" alt="" aria-hidden="true" width="1046" height="1504" decoding="sync" loading="eager" fetchpriority="high"></div>
+      <span id="frontFaceTitle">GANI</span>
+    </div>
+    <div class="front-face-copy">
+      <p class="front-face-tagline" id="frontFaceLead">TRADE SMARTER<br><span>LIVE FREER</span></p>
+      <p class="front-face-support">AI Powered Trading Ecosystem</p>
+      <p class="front-face-pillars">Analysis • Execution • Results</p>
+    </div>
+    <div class="front-face-actions">
+      <button class="front-face-start" id="frontFaceStart" type="button">Get Started</button>
+      <button class="front-face-signin" id="frontFaceSignIn" type="button" disabled aria-disabled="true" aria-label="Sign In unavailable: authentication is not configured" title="Sign In is unavailable until authentication is configured" data-auth-state="unconfigured">Sign In</button>
+    </div>
+  </div>
+</section>
 
 <header class="app-header">
   <a class="brand" href="#home" data-screen="home" aria-label="GANI Home">
-    <img src="assets/gani-logo-transparent-v30.png" alt="GANI">
+    <img src="assets/gani-front-face-crowned-emblem.png" alt="GANI">
     <span><b>GANI</b></span>
   </a>
   <nav class="desktop-nav" aria-label="Main navigation">
@@ -54,11 +76,12 @@
     <button data-screen="more"><span>More</span></button>
   </nav>
   <div class="header-actions">
-    <button class="round-btn" id="searchToggle" aria-label="Search"><span class="icon-search"></span></button>
-    <button class="text-btn desktop-only" data-screen="profile">Login</button>
+    <span class="workspace-state"><i></i><span>Read-only workspace</span></span>
+    <button class="round-btn" id="searchToggle" aria-label="Search" aria-controls="searchPanel" aria-expanded="false"><span class="icon-search"></span></button>
+    <button class="text-btn desktop-only" data-screen="profile">Account</button>
     <a class="primary compact desktop-only gani-download-link" href="install.html">Install GANI</a>
-    <button class="round-btn" id="noticeToggle" aria-label="Notifications"><span class="icon-bell"></span><i id="noticeDot"></i></button>
-    <button class="round-btn menu-btn" id="menuToggle" aria-label="Menu"><span class="icon-menu"></span></button>
+    <button class="round-btn" id="noticeToggle" aria-label="Notifications" aria-controls="noticePanel" aria-expanded="false"><span class="icon-bell"></span><i id="noticeDot"></i></button>
+    <button class="round-btn menu-btn" id="menuToggle" aria-label="Menu" aria-controls="mobileMenu" aria-expanded="false"><span class="icon-menu"></span></button>
   </div>
 </header>
 
@@ -81,34 +104,68 @@
 </aside>
 
 <main>
-<section class="screen active home-screen" id="home" data-title="Home">
+<section class="screen active home-screen" id="home" data-title="Home" aria-labelledby="homeDashboardTitle">
   <section class="mission-dashboard" aria-label="GANI home dashboard">
-    <div class="mission-topline"><div><p class="app-kicker">GANI PLATFORM</p><h1>Good evening, <em>trader.</em></h1><p class="mission-muted">Your command center for markets, insight and disciplined decisions.</p></div><button class="mission-avatar" data-screen="profile" aria-label="Open account">G</button></div>
-    <div class="mission-hero"><div><span class="mission-chip"><i></i> Workspace ready</span><h2>See the market.<br><em>Act with clarity.</em></h2><p>Use GANI to research, review risk and build your own process.</p><div class="mission-actions"><button class="primary" data-screen="markets">Explore markets <span>→</span></button><button class="secondary" data-screen="gani-ai">Ask GANI AI</button></div></div><div class="mission-orb" aria-hidden="true"><span>G</span><i></i></div></div>
-    <div class="mission-section-heading"><div><p class="app-kicker">OVERVIEW</p><h3>Your platform at a glance</h3></div><span class="demo-label">Demo view</span></div>
-    <div class="mission-metrics"><article><span>◈</span><small>MARKETS</small><b id="missionMarketCount">—</b><em>available records</em></article><article><span>⌁</span><small>SIGNALS</small><b>—</b><em>demo feed</em></article><article><span>◌</span><small>ACCOUNT</small><b id="missionAccountCount">—</b><em>connected records</em></article></div>
+    <div class="mission-topline"><div><p class="app-kicker">GANI PLATFORM</p><h1 id="homeDashboardTitle">Welcome back, <em>trader.</em></h1><p class="mission-muted">Your command center for markets, insight and disciplined decisions.</p></div><button class="mission-avatar" data-screen="profile" aria-label="Open account">G</button></div>
+    <div class="home-status-band" aria-label="Current workspace status">
+      <div class="home-status-main"><span class="status-check" id="homeStatusIcon">✓</span><div><b id="homeWorkspaceState">Research workspace ready</b><small id="homeWorkspaceDetail">Local reference tools are available in this browser session.</small></div></div>
+      <div class="home-status-details"><span><small>DATA SOURCE</small><b id="homeSourceState">DEMO MODE</b></span><span><small>LIVE QUOTES</small><b class="status-unavailable">UNAVAILABLE</b></span><span class="home-last-updated"><small>LAST CHECK</small><b id="homeLastUpdated" aria-live="polite">Not checked</b></span><button class="home-refresh" id="homeRefresh" type="button" aria-live="polite">Refresh snapshot</button><button class="home-status-link" data-screen="more">View boundaries <span aria-hidden="true">→</span></button></div>
+    </div>
+    <div class="mission-hero"><div><span class="mission-chip"><i></i> Read-only research workspace</span><h2>See the market.<br><em>Act with clarity.</em></h2><p>Use GANI to research, review risk and build your own process. Live quotes and trade execution stay off until a provider is connected.</p><div class="mission-actions"><button class="primary" id="homePrimaryExplore" data-screen="markets">Explore markets <span aria-hidden="true">→</span></button><button class="secondary" data-screen="gani-ai">Ask GANI AI</button></div><div class="mission-hero-meta" aria-label="Home workspace capabilities"><span><b>01</b><small>Research</small></span><span><b>02</b><small>Explain</small></span><span><b>03</b><small>Plan safely</small></span></div></div><div class="mission-orb" aria-hidden="true"><span>G</span><i></i></div></div>
+    <section class="home-command-rail" aria-label="Workspace command rail">
+      <button class="command-card" data-screen="markets" aria-label="Open market directory"><span class="command-icon">▥</span><span><small>RESEARCH</small><b>Market directory</b><em>Local reference records <i>→</i></em></span><strong id="homeRailMarketCount">—</strong></button>
+      <button class="command-card" data-screen="gani-ai" aria-label="Open GANI AI"><span class="command-icon">✦</span><span><small>GUIDANCE</small><b>GANI AI</b><em>Local explanation mode <i>→</i></em></span><strong>LOCAL</strong></button>
+      <button class="command-card command-card-muted" data-screen="more" aria-label="Open provider and workspace status"><span class="command-icon">◌</span><span><small>CONNECTIVITY</small><b>Live providers</b><em>Quotes and accounts unavailable</em></span><strong>OFF</strong></button>
+    </section>
+    <div class="mission-section-heading"><div><p class="app-kicker">OVERVIEW</p><h3>Your platform at a glance</h3></div><span class="demo-label home-overview-mode" id="homeOverviewMode">Demo view</span></div>
+    <div class="mission-metrics"><article><span aria-hidden="true">◈</span><small>MARKETS</small><b id="missionMarketCount">—</b><em>directory records</em></article><article><span aria-hidden="true">⌁</span><small>SIGNALS</small><b>3</b><em>demo examples</em></article><article><span aria-hidden="true">◌</span><small>ACCOUNT</small><b id="missionAccountCount">—</b><em>available records</em></article></div>
+    <section class="home-workspace" aria-label="Workspace status">
+      <article class="workspace-lead">
+        <div class="workspace-heading"><div><p class="app-kicker">WORKSPACE STATUS</p><h3>Choose your next move.</h3></div><span class="workspace-live"><i></i> Local shell ready</span></div>
+        <p>Start with research, ask for a structured explanation, or review the educational signal examples. Nothing on this dashboard places trades.</p>
+        <div class="workspace-actions"><button class="workspace-action" data-screen="markets"><span>▥</span><b>Research markets</b><small>Open the instrument directory <i>→</i></small></button><button class="workspace-action" data-screen="gani-ai"><span>✦</span><b>Ask GANI AI</b><small>Use local guidance mode <i>→</i></small></button></div>
+        <div class="workspace-pulse" aria-label="Local workspace pulse"><span><small>DIRECTORY</small><b id="homePulseMarkets">—</b></span><span><small>WATCHLIST</small><b id="homePulseWatchlist">0</b></span><span><small>UNREAD</small><b id="homePulseUnread">—</b></span></div>
+      </article>
+      <aside class="workspace-boundary">
+        <div class="workspace-heading"><div><p class="app-kicker">DATA BOUNDARY</p><h3>What is available</h3></div><span class="demo-label">Truthful state</span></div>
+        <ul class="workspace-status-list"><li><span class="status-check">✓</span><div><b>Market directory</b><small>Local reference records available</small></div></li><li><span class="status-check">✓</span><div><b>AI explanations</b><small>Local guidance only; backend not connected</small></div></li><li><span class="status-muted">—</span><div><b>Live quotes &amp; account data</b><small>Unavailable until a provider is connected</small></div></li></ul>
+      </aside>
+    </section>
+    <section class="home-activity mission-panel" aria-label="Recent workspace activity">
+      <div class="workspace-heading"><div><p class="app-kicker">ACTIVITY</p><h3>Recent workspace activity</h3></div><button class="home-status-link" data-screen="dashboard">Open analytics <span aria-hidden="true">→</span></button></div>
+      <div id="homeActivityList" class="home-activity-list" role="status"><p class="mission-muted small">Loading local activity…</p></div>
+    </section>
+    <section class="home-decision-loop" aria-label="GANI decision loop">
+      <div class="decision-loop-head">
+        <div><p class="app-kicker">THE GANI LOOP</p><h3>Move from question to plan.</h3></div>
+        <span class="demo-label">Read-only workflow</span>
+      </div>
+      <div class="decision-loop-grid">
+        <button class="decision-step" data-screen="markets"><span class="decision-number">01</span><span class="decision-icon">▥</span><b>Observe</b><small>Review the local instrument directory.</small><i aria-hidden="true">Open Markets →</i></button>
+        <button class="decision-step" data-screen="gani-ai"><span class="decision-number">02</span><span class="decision-icon">✦</span><b>Understand</b><small>Ask for a concept explanation in local mode.</small><i aria-hidden="true">Ask GANI AI →</i></button>
+        <button class="decision-step" data-screen="risk-management"><span class="decision-number">03</span><span class="decision-icon">◒</span><b>Protect</b><small>Turn your assumptions into browser-only guardrails.</small><i aria-hidden="true">Build a plan →</i></button>
+      </div>
+    </section>
     <div class="mission-section-heading"><div><p class="app-kicker">QUICK ACCESS</p><h3>Pick up where you left off</h3></div></div>
-    <div class="mission-quick-grid"><button data-screen="markets"><span>▥</span><b>Markets</b><small>Browse instruments</small><i>→</i></button><button data-screen="signals"><span>⌁</span><b>Signals</b><small>Review demo ideas</small><i>→</i></button><button data-screen="risk-management"><span>◒</span><b>Risk management</b><small>Plan your exposure</small><i>→</i></button><button data-screen="workspace"><span>▦</span><b>Workspace</b><small>Customer tools</small><i>→</i></button></div>
+    <div class="mission-quick-grid"><button data-screen="markets"><span>▥</span><b>Markets</b><small>Browse instruments</small><i>→</i></button><button data-screen="signals"><span>⌁</span><b>Signals</b><small>Review demo ideas</small><i>→</i></button><button data-screen="risk-management"><span>◒</span><b>Risk management</b><small>Plan your exposure</small><i>→</i></button><button data-screen="files" class="availability-card" disabled aria-disabled="true"><span>▦</span><b>Files</b><small>Unavailable until workspace connects</small><i>Unavailable</i></button></div>
     <div class="mission-note"><span>i</span><p><b>Data transparency</b><br><span id="missionDataNote">Demo/sample content is clearly marked until a production data source is connected.</span></p></div>
   </section>
-  <section class="mobile-app-home" aria-label="GANI mobile home">
+  <section class="mobile-app-home" aria-label="GANI mobile home" aria-hidden="true">
     <div class="mobile-welcome"><div><p>Welcome to GANI</p><h1>Smarter <em>control.</em></h1></div><span class="mode-badge" id="mobileMode">Checking…</span></div>
     <article class="mobile-hero">
-      <div class="mobile-hero-copy"><small>GANI</small><h2>Trade Smarter.<br><em>Grow Stronger.</em></h2><p>Markets, analytics and trusted tools in one secure place.</p><div class="mobile-hero-actions"><a class="primary gani-download-link" href="install.html">Install GANI <span>↓</span></a><button class="secondary" data-screen="discover">Explore Markets</button></div></div>
+      <div class="mobile-hero-copy"><small>GANI</small><h2>Trade Smarter.<br><em>Grow Stronger.</em></h2><p>Markets, analytics and trusted tools in one secure place.</p><div class="mobile-hero-actions"><a class="primary gani-download-link" href="install.html">Install GANI <span>↓</span></a><button class="secondary" data-screen="markets">Explore Markets</button></div></div>
       <img src="assets/gani-official-v34.png" alt="GANI">
       <div class="mobile-trust"><span>✓ Secure</span><span>▥ Market Data</span><span>♙ Trusted Tools</span><span>◎ Global Access</span></div>
     </article>
-    <div class="mobile-section-head market-heading"><h3>Market Snapshot</h3><button data-screen="discover"><span class="app-status-dot"></span> Live Markets ›</button></div>
+    <div class="mobile-section-head market-heading"><h3>Market Snapshot</h3><button data-screen="markets"><span class="app-status-dot"></span> Market directory ›</button></div>
     <section class="mobile-market">
-      <div class="mobile-market-grid">
-        <article class="up" data-screen="discover" role="button" tabindex="0"><div class="market-name"><span>€</span><b>EUR/USD</b></div><strong>1.0824</strong><em>▲ +0.0018&nbsp;&nbsp;+0.17%</em><svg viewBox="0 0 120 32" aria-hidden="true"><path d="M2 27L14 23L24 25L36 18L47 20L59 14L70 17L82 10L93 13L105 6L118 3"/></svg></article>
-        <article class="down" data-screen="discover" role="button" tabindex="0"><div class="market-name"><span>◆</span><b>Gold</b></div><strong>2,415.32</strong><em>▼ −12.63&nbsp;&nbsp;−0.52%</em><svg viewBox="0 0 120 32" aria-hidden="true"><path d="M2 6L14 10L24 7L36 15L47 12L59 20L70 17L82 24L93 21L105 28L118 26"/></svg></article>
-        <article class="up" data-screen="discover" role="button" tabindex="0"><div class="market-name"><span>₿</span><b>BTC/USD</b></div><strong>67,284.50</strong><em>▲ +1,327.40&nbsp;&nbsp;+2.01%</em><svg viewBox="0 0 120 32" aria-hidden="true"><path d="M2 25L14 20L24 22L36 16L47 19L59 14L70 15L82 9L93 11L105 5L118 2"/></svg></article>
+      <div class="mobile-market-grid" id="homeMobileMarketGrid" aria-live="polite">
+        <article class="market-loading"><div class="market-name"><span>◎</span><b>Loading directory</b></div><strong>Checking local records…</strong><em>Read-only workspace</em></article>
       </div>
     </section>
     <div class="mobile-section-head quick-heading"><h3>Quick Access</h3><small>Everything in one place ›</small></div>
     <div class="mobile-feature-grid">
-      <button data-screen="discover"><span class="mi">▥</span><b>Market<br>Analysis</b><small>Discover opportunities <i>›</i></small></button>
+      <button data-screen="markets"><span class="mi">▥</span><b>Market<br>Analysis</b><small>Discover opportunities <i>›</i></small></button>
       <button data-screen="dashboard"><span class="mi">⌁</span><b>Account<br>Analytics</b><small>Track performance <i>›</i></small></button>
       <button data-screen="verify"><span class="mi">✓</span><b>Verify<br>Tools</b><small>Trade with confidence <i>›</i></small></button>
       <button data-screen="education"><span class="mi">◇</span><b>Education</b><small>Learn and grow <i>›</i></small></button>
@@ -127,20 +184,20 @@
     </section>
     </div>
     <section class="gani-install-banner" aria-label="Install GANI">
-      <div><small>GANI APP</small><h3>GANI meel kasta kula soco.</h3><p>Hal application oo kuu keenaya suuqyada, falanqaynta, xaqiijinta iyo account-kaaga.</p><div><a class="primary gani-download-link" href="install.html">Install GANI ↓</a><a class="secondary gani-download-link" href="./">Open GANI</a></div></div>
+      <div><small>GANI APP</small><h3>GANI meel kasta kula soco.</h3><p>Hal application oo kuu keenaya suuqyada, falanqaynta, xaqiijinta iyo account-kaaga.</p><div><a class="primary gani-download-link" href="install.html">Install GANI ↓</a><a class="secondary" href="./">Open GANI</a></div></div>
       <img src="assets/gani-official-v34.png" alt="GANI application">
     </section>
     <div class="mobile-runtime-data" hidden><span id="mobileDataLabel">Data</span><b id="mobileMarketCount">—</b><b id="mobileAccountCount">—</b><b id="mobileNoticeCount">—</b></div>
     <div class="mobile-command-strip"><article><small>SYSTEM STATUS</small><b>Customer workspace ready</b><div class="progress"><i></i></div></article><article><small>SECURITY</small><b>Protected data boundary</b><div class="progress"><i style="width:92%"></i></div></article></div>
   </section>
-  <section class="hero-card">
+  <section class="hero-card" aria-hidden="true">
     <div class="hero-grid"></div>
     <div class="hero-copy">
       <p class="eyebrow">DISCIPLINE <span>•</span> ANALYZE <span>•</span> GROW</p>
       <h1>Trade Smarter<br>With <em>GANI</em></h1>
       <p class="lead">Advanced tools. Clear insights.<br>Your success, our priority.</p>
       <div class="hero-actions">
-        <button class="primary hero-primary" data-screen="discover">Get Started <span>→</span></button>
+        <button class="primary hero-primary" data-screen="markets">Get Started <span>→</span></button>
         <button class="secondary" data-screen="education"><span class="play">▶</span> Learn More</button><a class="secondary gani-download-link" href="install.html">Install GANI</a>
       </div>
       <div class="trust-row" aria-label="Platform qualities">
@@ -161,19 +218,19 @@
     </div>
   </section>
 
-  <section class="quick-actions" aria-label="Quick actions">
-    <button data-screen="discover"><span class="quick-icon">▥</span><b>Market<br>Analysis</b><i>→</i></button>
+  <section class="quick-actions" aria-label="Quick actions" aria-hidden="true">
+    <button data-screen="markets"><span class="quick-icon">▥</span><b>Market<br>Analysis</b><i>→</i></button>
     <button data-screen="dashboard"><span class="quick-icon">⌁</span><b>Account<br>Insights</b><i>→</i></button>
     <button data-screen="verify"><span class="quick-icon">✓</span><b>Verify<br>Reference</b><i>→</i></button>
     <button data-screen="education"><span class="quick-icon">◇</span><b>Learn<br>GANI</b><i>→</i></button>
     <button data-screen="support"><span class="quick-icon">◉</span><b>Get<br>Support</b><i>→</i></button>
   </section>
 
-  <section class="home-grid">
+  <section class="home-grid" aria-hidden="true">
     <article class="feature-card featured">
       <div class="feature-top"><span class="feature-icon">▥</span><span class="status-pill"><i></i> Ready</span></div>
       <h3>Market Analysis</h3><p>Compare marketplace records from a clean, guided workspace.</p>
-      <button class="card-link" data-screen="discover">Explore market <span>→</span></button>
+      <button class="card-link" data-screen="markets">Explore market <span>→</span></button>
     </article>
     <article class="feature-card">
       <div class="feature-top"><span class="feature-icon">⌁</span><span class="status-pill neutral">Read only</span></div>
@@ -192,7 +249,7 @@
     </article>
   </section>
 
-  <section class="overview-card">
+  <section class="overview-card" aria-hidden="true">
     <div class="overview-head"><div><small>PLATFORM OVERVIEW</small><h3>Everything important, one glance.</h3></div><span class="connection-state"><i></i><b id="marketStripMode">Loading</b></span></div>
     <div class="overview-metrics">
       <div><span class="metric-icon">▦</span><p><small>MARKETPLACE</small><b id="homeMarketCount">—</b><em>records</em></p></div>
@@ -203,7 +260,7 @@
     </div>
   </section>
 
-  <section class="proof-row">
+  <section class="proof-row" aria-hidden="true">
     <div><span>◉</span><p><b>Customer-first</b><small>Clear visual hierarchy</small></p></div>
     <div><span>◎</span><p><b>Responsive</b><small>Web • Android • iOS</small></p></div>
     <div><span>✓</span><p><b>Protected</b><small>No frontend secrets</small></p></div>
@@ -217,7 +274,10 @@
   <div class="mission-note"><span>i</span><p><b>Research directory</b><br>Instrument names and categories are a local demo reference set. <button class="inline-link" type="button" data-screen="charts">Open chart foundation →</button> Quotes and trade actions require an explicitly connected provider.</p></div>
 </section>
 
-<section class="screen mission-screen" id="charts" data-title="Charts"><header class="mission-page-head"><div><p class="app-kicker">CHARTS</p><h2>Read the shape,<br><em>verify the source.</em></h2><p>A chart workspace foundation ready for a future verified time-series adapter.</p></div><span class="mission-symbol">⌁</span></header><div class="chart-shell mission-panel"><div class="chart-head"><div><span class="demo-label">No feed connected</span><h3>Instrument chart</h3></div><select aria-label="Select chart instrument" disabled><option>Select an instrument</option></select></div><div class="chart-empty"><div class="chart-grid-lines"></div><span>Time-series data will appear here<br>after a provider is connected.</span></div><div class="chart-legend"><span><i class="legend-line"></i>Price series</span><span><i class="legend-dot"></i>Events</span><small>Future adapter: symbol · timeframe · candles · source timestamp</small></div></div></section>
+<section class="screen mission-screen" id="charts" data-title="Charts">
+  <header class="mission-page-head"><div><p class="app-kicker">CHARTS</p><h2>Read the shape,<br><em>verify the source.</em></h2><p>A chart workspace foundation ready for a future verified time-series adapter.</p></div><span class="mission-symbol">⌁</span></header>
+  <div class="chart-shell mission-panel"><div class="chart-head"><div><span class="demo-label">No feed connected</span><h3>Instrument chart</h3></div><select aria-label="Select chart instrument" disabled><option>Select an instrument</option></select></div><div class="chart-empty"><div class="chart-grid-lines"></div><span>Time-series data will appear here<br>after a provider is connected.</span></div><div class="chart-legend"><span><i class="legend-line"></i>Price series</span><span><i class="legend-dot"></i>Events</span><small>Future adapter: symbol · timeframe · candles · source timestamp</small></div></div>
+</section>
 
 <section class="screen mission-screen" id="gani-ai" data-title="GANI AI">
   <header class="mission-page-head"><div><p class="app-kicker">GANI AI</p><h2>A calmer way to<br><em>think through markets.</em></h2><p>Ask for explanations, check assumptions and turn research into a plan.</p></div><span class="mission-symbol">✦</span></header>
@@ -231,17 +291,50 @@
 
 <section class="screen mission-screen" id="more" data-title="More">
   <header class="mission-page-head"><div><p class="app-kicker">GANI PLATFORM</p><h2>Everything else,<br><em>one tap away.</em></h2><p>Tools and spaces that support your workflow around the core experience.</p></div><span class="mission-symbol">•••</span></header>
-  <div class="more-groups"><div><p class="app-kicker">WORKFLOW</p><div class="more-grid"><button data-screen="terminal"><span>⌘</span><b>Terminal</b><small>Trading workspace</small></button><button data-screen="vps-connections"><span>⌁</span><b>VPS Connections</b><small>Demo connection area</small></button><button data-screen="workspace"><span>▦</span><b>Files / Workspace</b><small>Customer workspace</small></button><button data-screen="community"><span>◉</span><b>Community</b><small>Coming in a later milestone</small></button></div></div><div><p class="app-kicker">INSIGHT & CONTROL</p><div class="more-grid"><button data-screen="charts"><span>⌁</span><b>Charts</b><small>Provider-ready foundation</small></button><button data-screen="news"><span>▤</span><b>News</b><small>Provider required</small></button><button data-screen="economic-calendar"><span>◷</span><b>Economic Calendar</b><small>Provider required</small></button><button data-screen="risk-management"><span>◒</span><b>Risk Management</b><small>Plan exposure</small></button></div></div><div><p class="app-kicker">ACCOUNT & HELP</p><div class="more-grid"><button data-screen="performance"><span>◈</span><b>Performance</b><small>Connect account data later</small></button><button data-screen="profile"><span>●</span><b>Account</b><small>Profile and data source</small></button><button data-screen="settings"><span>⚙</span><b>Settings</b><small>Preferences placeholder</small></button><button data-screen="support"><span>?</span><b>Support</b><small>Get help</small></button></div></div></div>
+  <div class="more-groups"><div><p class="app-kicker">WORKFLOW</p><div class="more-grid"><button data-screen="terminal"><span>⌘</span><b>Terminal</b><small>Trading workspace</small></button><button data-screen="vps-connections"><span>⌁</span><b>VPS Connections</b><small>Demo connection area</small></button><button data-screen="files"><span>▦</span><b>Files / Workspace</b><small>Authorized file boundary</small></button><button data-screen="community"><span>◉</span><b>Community</b><small>Telegram boundary</small></button></div></div><div><p class="app-kicker">INSIGHT & CONTROL</p><div class="more-grid"><button data-screen="charts"><span>⌁</span><b>Charts</b><small>Provider-ready foundation</small></button><button data-screen="news"><span>▤</span><b>News</b><small>Provider required</small></button><button data-screen="economic-calendar"><span>◷</span><b>Economic Calendar</b><small>Provider required</small></button><button data-screen="risk-management"><span>◒</span><b>Risk Management</b><small>Plan exposure</small></button></div></div><div><p class="app-kicker">ACCOUNT & HELP</p><div class="more-grid"><button data-screen="performance"><span>◈</span><b>Performance</b><small>Connect account data later</small></button><button data-screen="profile"><span>●</span><b>Account</b><small>Profile and data source</small></button><button data-screen="settings"><span>⚙</span><b>Settings</b><small>Preferences placeholder</small></button><button data-screen="support"><span>?</span><b>Support</b><small>Get help</small></button><button data-screen="about-gani"><span>◎</span><b>About GANI</b><small>Product principles</small></button></div></div></div>
 </section>
 
-<section class="screen mission-screen" id="terminal" data-title="Terminal"><header class="mission-page-head"><div><p class="app-kicker">TERMINAL</p><h2>Your focused<br><em>workbench.</em></h2><p class="mission-muted">Terminal connectivity is not configured in Mission 001.</p></div></header><div class="mission-panel placeholder-panel"><span class="placeholder-icon">⌘</span><h3>Terminal integration placeholder</h3><p>Connect a supported provider in a future backend milestone. No orders or automatic transactions are available in this app.</p><span class="demo-label">Not connected</span></div></section>
+<section class="screen mission-screen dev-control-screen" id="development-control" data-title="Development Control Center">
+  <header class="mission-page-head"><div><p class="app-kicker">DEVELOPMENT / ADMIN</p><h2>Build status,<br><em>made inspectable.</em></h2><p>This internal view reads the public, non-sensitive development ledger. It is not part of the customer navigation.</p></div><span class="mission-symbol">⌘</span></header>
+  <div class="dev-gate" id="devGate" role="status"><b>Development view</b><span>Use the development access flag to inspect this screen.</span></div>
+  <div id="devControlContent" hidden>
+    <div class="dev-overview mission-metrics">
+      <article><small>OVERALL STATUS</small><b id="devOverallStatus">—</b><em id="devOverallDetail">Loading ledger…</em></article>
+      <article><small>CURRENT JOB</small><b id="devCurrentJob">—</b><em id="devCurrentPhase">—</em></article>
+      <article><small>LAST UPDATE</small><b id="devLastUpdate">—</b><em>UTC</em></article>
+    </div>
+    <div class="dev-job-grid" id="devJobGrid"></div>
+    <article class="mission-panel dev-report-panel"><div class="dev-section-head"><div><p class="app-kicker">OWNER JOB REPORT</p><h3>Delivery truth</h3></div><span class="demo-label" id="devReportState">NOT_DELIVERED</span></div><div class="dev-report-grid" id="devReportGrid"><div><b>TOTAL</b><strong>—</strong></div><div><b>COMPLETE</b><strong>—</strong></div><div><b>WORKING</b><strong>—</strong></div><div><b>FAILED</b><strong>—</strong></div><div><b>BLOCKED</b><strong>—</strong></div><div><b>NOT_DELIVERED</b><strong>—</strong></div></div><p class="mission-muted small" id="devReportReason">Loading delivery reason…</p></article>
+    <article class="mission-panel dev-current-tests"><div class="dev-section-head"><div><p class="app-kicker">CURRENT VERIFICATION</p><h3>Tests run</h3></div><span class="demo-label">Evidence</span></div><div id="devCurrentTests" class="dev-list"><p class="mission-muted small">Loading test results…</p></div></article>
+    <article class="mission-panel dev-truth-panel"><div class="dev-section-head"><div><p class="app-kicker">FUNCTIONALITY TRUTH</p><h3>What is connected</h3></div><span class="demo-label">No invented availability</span></div><div class="dev-truth-grid"><div><b>REAL</b><ul id="devRealFeatures"><li>Loading…</li></ul></div><div><b>DEMO</b><ul id="devDemoFeatures"><li>Loading…</li></ul></div><div><b>PROVIDER-DEPENDENT</b><ul id="devProviderFeatures"><li>Loading…</li></ul></div></div></article>
+    <div class="dev-columns"><article class="mission-panel"><div class="dev-section-head"><div><p class="app-kicker">RECENT DELIVERY</p><h3>Files and verification</h3></div><span class="demo-label">Non-sensitive ledger</span></div><div id="devCompletedList" class="dev-list"></div></article><article class="mission-panel"><div class="dev-section-head"><div><p class="app-kicker">BLOCKERS</p><h3>What remains</h3></div></div><div id="devBlockerList" class="dev-list"></div></article></div>
+    <p class="mission-muted small" id="devTruthNote">Functionality states are classified as real, demo, or provider-dependent. Secrets and raw infrastructure logs are never rendered here.</p>
+  </div>
+</section>
+
+<section class="screen mission-screen" id="terminal" data-title="Terminal">
+  <header class="mission-page-head"><div><p class="app-kicker">TERMINAL</p><h2>Your focused<br><em>workbench.</em></h2><p class="mission-muted">A safe session boundary for authorized workspace access. Shell execution stays unavailable until an authenticated backend is configured.</p></div><span class="mission-symbol">⌘</span></header>
+  <div class="terminal-layout">
+    <div class="mission-panel terminal-panel">
+      <div class="terminal-toolbar"><div><span class="demo-label" id="terminalConnectionState">Not connected</span><b id="terminalSessionLabel">Session —</b></div><div class="terminal-toolbar-actions"><button class="secondary terminal-action" id="terminalReconnect" type="button">Reconnect</button><button class="secondary terminal-action" id="terminalClear" type="button">Clear</button><button class="secondary terminal-action" id="terminalCopy" type="button">Copy output</button></div></div>
+      <div class="terminal-output" id="terminalOutput" role="log" aria-live="polite" aria-label="Terminal output"><div class="terminal-line terminal-muted">GANI terminal boundary ready.</div><div class="terminal-line terminal-muted">Execution is unavailable until a supported authenticated session service is connected.</div></div>
+      <form class="terminal-input-row" id="terminalForm"><label for="terminalInput">$</label><input id="terminalInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type help to see available client commands" aria-label="Terminal command"><button class="primary" type="submit">Send</button></form>
+      <div class="terminal-helper" aria-label="Terminal helper keys"><button type="button" data-terminal-key="CTRL">Ctrl</button><button type="button" data-terminal-key="TAB">Tab</button><button type="button" data-terminal-key="ESC">Esc</button><button type="button" data-terminal-key="ARROWUP">↑</button><button type="button" data-terminal-key="ARROWDOWN">↓</button><span>History: <b id="terminalHistoryCount">0</b></span></div>
+    </div>
+    <aside class="mission-panel terminal-sidebar"><div class="terminal-sidebar-head"><div><p class="app-kicker">SESSION</p><h3>Workspace boundary</h3></div><span class="terminal-status-dot" id="terminalStatusDot"></span></div><dl><div><dt>Working directory</dt><dd id="terminalCwd">Not available</dd></div><div><dt>Session identity</dt><dd id="terminalSessionId">Creating…</dd></div><div><dt>Connection</dt><dd id="terminalConnectionDetail">Backend not configured</dd></div></dl><button class="secondary terminal-files-link" type="button" data-screen="files">Open Files / Workspace →</button><p class="mission-muted small">Only an authenticated backend may execute commands. No SSH keys, infrastructure credentials, or unrestricted shell access are stored in this browser.</p></aside>
+  </div>
+</section>
+<section class="screen mission-screen" id="files" data-title="Files / Workspace">
+  <header class="mission-page-head"><div><p class="app-kicker">FILES / WORKSPACE</p><h2>Your files,<br><em>within your boundary.</em></h2><p>Browse only the authorized workspace returned by a connected file service.</p></div><span class="mission-symbol">▦</span></header>
+  <div class="files-layout"><article class="mission-panel files-panel"><div class="files-toolbar"><div><span class="demo-label" id="filesConnectionState">Not connected</span><h3 id="filesWorkspaceName">Authorized workspace</h3></div><button class="secondary" id="filesRefresh" type="button">Refresh</button></div><div id="filesList" class="files-list" role="status"><div class="files-empty"><span>▦</span><b>File service not configured</b><p>Files will appear here only after an authenticated backend establishes the user workspace. This browser cannot read local or internal infrastructure files.</p></div></div></article><aside class="mission-panel files-sidebar"><p class="app-kicker">SECURITY</p><h3>Isolated by design</h3><ul><li>Workspace identity comes from the authenticated session.</li><li>Rename, delete, upload and download stay disabled until permissions are returned.</li><li>No SSH keys or internal paths are stored in public frontend state.</li></ul><button class="secondary" type="button" data-screen="terminal">Open Terminal →</button></aside></div>
+</section>
 <section class="screen mission-screen" id="vps-connections" data-title="VPS Connections"><header class="mission-page-head"><div><p class="app-kicker">VPS CONNECTIONS</p><h2>Infrastructure,<br><em>made visible.</em></h2></div></header><div class="mission-panel placeholder-panel"><span class="placeholder-icon">⌁</span><h3>No VPS connections configured</h3><p>This is a safe placeholder for future connection management. Credentials are never stored in this frontend.</p><span class="demo-label">Not connected</span></div></section>
 <section class="screen mission-screen" id="news" data-title="News"><header class="mission-page-head"><div><p class="app-kicker">NEWS</p><h2>Signal from<br><em>the noise.</em></h2><p>Prepare a reading workflow before a verified provider is connected.</p></div></header><div class="mission-panel data-state-panel"><div class="state-icon">▤</div><div><span class="demo-label">Provider required</span><h3>No verified headlines yet</h3><p>News cards will appear here only when a trusted backend adapter supplies source, timestamp and attribution.</p><button class="secondary" type="button" data-demo-action="News provider">View integration status</button></div></div></section>
 <section class="screen mission-screen" id="economic-calendar" data-title="Economic Calendar"><header class="mission-page-head"><div><p class="app-kicker">ECONOMIC CALENDAR</p><h2>Plan around<br><em>the events.</em></h2><p>Keep event context separate from unverified assumptions.</p></div></header><div class="mission-panel data-state-panel"><div class="state-icon">◷</div><div><span class="demo-label">Provider required</span><h3>Calendar data is not connected</h3><p>Future events need a verified source, timezone and impact taxonomy before they can be displayed.</p><button class="secondary" type="button" data-demo-action="Calendar provider">View integration status</button></div></div></section>
-<section class="screen mission-screen" id="risk-management" data-title="Risk Management"><header class="mission-page-head"><div><p class="app-kicker">RISK MANAGEMENT</p><h2>Protect the<br><em>downside.</em></h2><p>Use this space to plan before acting. Values below are intentionally blank until account data is connected.</p></div></header><div class="mission-metrics"><article><small>RISK / TRADE</small><b>—</b><em>not configured</em></article><article><small>MAX LOSS</small><b>—</b><em>not configured</em></article><article><small>EXPOSURE</small><b>—</b><em>not configured</em></article></div></section>
+<section class="screen mission-screen" id="risk-management" data-title="Risk Management"><header class="mission-page-head"><div><p class="app-kicker">RISK MANAGEMENT</p><h2>Protect the<br><em>downside.</em></h2><p>Build a simple trade plan locally before acting. Nothing here reads or changes a connected account.</p></div></header><div class="risk-layout"><form class="mission-panel risk-form" id="riskForm"><div class="dev-section-head"><div><p class="app-kicker">LOCAL PLANNER</p><h3>Define your limits</h3></div><span class="demo-label">BROWSER ONLY</span></div><div class="risk-fields"><label>Account size<input id="riskAccount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="10000" required><small>Use the balance you intend to plan against.</small></label><label>Risk per trade (%)<input id="riskPercent" type="number" min="0.01" max="100" step="0.01" inputmode="decimal" value="1" required><small>A planning assumption, not account configuration.</small></label><label>Entry price<input id="riskEntry" type="number" min="0" step="0.00001" inputmode="decimal" placeholder="1.08500" required></label><label>Stop price<input id="riskStop" type="number" min="0" step="0.00001" inputmode="decimal" placeholder="1.08000" required></label></div><button class="primary" type="submit">Calculate plan <span>→</span></button><p class="form-note" id="riskFormNote" role="status">Enter values to calculate a planning estimate.</p></form><article class="mission-panel risk-result" aria-live="polite"><div class="dev-section-head"><div><p class="app-kicker">PLAN OUTPUT</p><h3>Your guardrails</h3></div><span class="demo-label">NOT A LIVE LIMIT</span></div><div class="risk-output-grid"><div><small>MAX LOSS</small><b id="riskMaxLoss">—</b><em id="riskLossDetail">Waiting for inputs</em></div><div><small>STOP DISTANCE</small><b id="riskDistance">—</b><em id="riskDistanceDetail">Entry vs stop</em></div><div><small>POSITION SIZE</small><b id="riskPosition">—</b><em id="riskPositionDetail">Account units</em></div></div><div class="risk-checklist"><b>Before you act</b><span>□ Confirm the instrument’s contract or pip value.</span><span>□ Check liquidity, fees and slippage.</span><span>□ Stop if the real account limit differs from this plan.</span></div></article></div></section>
 <section class="screen mission-screen" id="performance" data-title="Performance"><header class="mission-page-head"><div><p class="app-kicker">PERFORMANCE</p><h2>Measure what<br><em>you control.</em></h2></div></header><div class="mission-panel placeholder-panel"><span class="placeholder-icon">◈</span><h3>Performance data not connected</h3><p>Results will appear only after a supported account data source is explicitly connected. No fabricated balance or profit figures are shown.</p><span class="demo-label">Awaiting data</span></div></section>
-<section class="screen mission-screen" id="community" data-title="Community"><header class="mission-page-head"><div><p class="app-kicker">COMMUNITY</p><h2>Learn in<br><em>good company.</em></h2></div></header><div class="mission-panel placeholder-panel"><span class="placeholder-icon">◉</span><h3>Community is being prepared</h3><p>Moderated community features will be introduced in a later milestone.</p><span class="demo-label">Coming later</span></div></section>
-<section class="screen mission-screen" id="settings" data-title="Settings"><header class="mission-page-head"><div><p class="app-kicker">SETTINGS</p><h2>Your preferences,<br><em>your control.</em></h2></div></header><div class="mission-panel settings-list"><button type="button" data-demo-action="Preferences"><span>◌</span><b>App preferences</b><small>Coming in a later milestone</small></button><button type="button" data-demo-action="Notifications"><span>◉</span><b>Notification preferences</b><small>Uses existing read-only notification data</small></button><button type="button" data-demo-action="Data mode"><span>◇</span><b>Data source</b><small id="settingsDataMode">Checking…</small></button></div></section>
+<section class="screen mission-screen" id="community" data-title="Community"><header class="mission-page-head"><div><p class="app-kicker">COMMUNITY / TELEGRAM</p><h2>Learn in<br><em>good company.</em></h2><p>Join only a verified public GANI channel. Connection status is shown honestly below.</p></div><span class="mission-symbol">◉</span></header><div class="community-layout"><article class="mission-panel telegram-panel"><div class="telegram-heading"><div class="state-icon">◉</div><div><span class="demo-label" id="telegramStatus">Not configured</span><h3 id="telegramTitle">Telegram community</h3></div></div><p id="telegramDetail">A public Telegram URL has not been configured for this deployment.</p><button class="primary" id="telegramOpen" type="button" disabled aria-disabled="true">Telegram unavailable</button><small class="mission-muted" id="telegramSafety">The action stays disabled until GANI supplies a verified HTTPS public URL.</small></article><article class="mission-panel"><div class="dev-section-head"><div><p class="app-kicker">EDUCATIONAL PREVIEW</p><h3>Signal / analysis notes</h3></div><span class="demo-label">DEMO</span></div><div class="telegram-preview-list"><div><b>EUR/USD structure review</b><small>Educational checklist · no live quote or trade instruction</small></div><div><b>Gold event preparation</b><small>Demo note · confirm sources before relying on it</small></div><div><b>Risk before action</b><small>Educational reminder · define invalidation and maximum loss</small></div></div></article></div></section>
+<section class="screen mission-screen" id="settings" data-title="Settings"><header class="mission-page-head"><div><p class="app-kicker">SETTINGS</p><h2>Your preferences,<br><em>your control.</em></h2></div></header><div class="mission-panel settings-list"><button type="button" data-demo-action="Preferences"><span>◌</span><b>App preferences</b><small id="preferencesSummary">Compact workspace layout · English</small></button><button type="button" data-demo-action="Notifications"><span>◉</span><b>Notification preferences</b><small>Uses existing read-only notification data</small></button><button type="button" data-demo-action="Data mode"><span>◇</span><b>Data source</b><small id="settingsDataMode">Checking…</small></button></div><form class="mission-panel preferences-panel" id="preferencesForm" hidden><div class="dev-section-head"><div><p class="app-kicker">APP PREFERENCES</p><h3>Make GANI fit your workflow</h3></div><button class="secondary" id="preferencesClose" type="button">Close</button></div><div class="preferences-fields"><label>Workspace density<select id="preferenceDensity"><option value="compact">Compact</option><option value="comfortable">Comfortable</option></select></label><label>Language<select id="preferenceLanguage"><option value="en">English</option><option value="so">Soomaali</option></select></label></div><button class="primary" type="submit">Save preferences <span>→</span></button><p class="form-note" id="preferencesNote" role="status">Preferences are saved on this device.</p></form></section>
 <section class="screen mission-screen" id="about-gani" data-title="About GANI"><header class="mission-page-head"><div><p class="app-kicker">ABOUT GANI</p><h2>Built for<br><em>clearer decisions.</em></h2><p>GANI is a platform foundation for market research, workflow and accountable tools.</p></div></header><div class="mission-panel about-copy"><p>We believe useful technology should make complexity easier to see, not encourage rushed decisions.</p><div class="mission-principles"><span>Clarity</span><span>Transparency</span><span>Control</span></div></div></section>
 
 <section class="screen v27-screen" id="services" data-title="Adeegyada">
@@ -333,6 +426,7 @@
     <article><div class="support-icon">◇</div><div><small>02</small><h3>Data & security</h3><p>Understand real mode, demo mode and protected credentials.</p></div><button data-screen="education">Read →</button></article>
     <article><div class="support-icon">⌁</div><div><small>03</small><h3>Offline & PWA</h3><p>How the app shell behaves when installed or offline.</p></div><button data-screen="home">Home →</button></article>
   </div>
+  <form class="mission-panel support-request" id="supportRequest"><div class="dev-section-head"><div><p class="app-kicker">SELF-SERVICE REQUEST</p><h3>Describe what you need</h3></div><span class="demo-label">SAVED LOCALLY</span></div><div class="support-request-fields"><label>Topic<select id="supportTopic"><option>Account or profile</option><option>Marketplace</option><option>Verification</option><option>Technical issue</option></select></label><label>Reference (optional)<input id="supportReference" placeholder="e.g. GANI-1234"></label></div><label>Message<textarea id="supportMessage" rows="4" minlength="10" required placeholder="Tell us what happened and what you expected."></textarea></label><button class="primary" type="submit">Save request <span>→</span></button><p class="form-note" id="supportRequestNote" role="status">This stores a draft on this device. Sending to support requires an authenticated backend.</p></form>
 </section>
 
 <section class="screen" id="profile" data-title="Account">
@@ -360,7 +454,7 @@
 </nav>
 
 <footer>
-  <a class="brand" href="#home" data-screen="home"><img src="assets/gani-logo-transparent-v30.png" alt="GANI"><span><b>GANI</b></span></a>
+  <a class="brand" href="#home" data-screen="home"><img src="assets/gani-front-face-crowned-emblem.png" alt="GANI"><span><b>GANI</b></span></a>
   <p>DISCIPLINE <span>•</span> ANALYZE <span>•</span> GROW</p><small>© 2026 GANI</small>
 </footer>
 <div class="toast" id="toast"></div>

@@ -1,0 +1,42 @@
+/* Owner review guardrails: the emblem must never acquire a backing tile or move. */
+.front-face-pending .front-face-mark,
+.front-face-pending .front-face-mark img {
+  background: transparent !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.front-face-pending .front-face-mark {
+  animation: none !important;
+}
+
+.front-face-pending .front-face-mark::before,
+.front-face-pending .front-face-mark::after {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* The supplied RGBA emblem supplies only the alpha silhouette; front-face.css
+   paints the clean metallic base and clipped moving reflection. Keeping the
+   source pixels hidden prevents the original soft yellow treatment from
+   showing through the polished layer or creating a backing tile. */
+.front-face-pending .front-face-mark img {
+  opacity: 0 !important;
+}
+
+@supports (mask-image: url("assets/gani-front-face-crowned-emblem.png")) or
+          (-webkit-mask-image: url("assets/gani-front-face-crowned-emblem.png")) {
+  .front-face-pending .front-face-mark img {
+    opacity: 0 !important;
+  }
+}
+
+@supports not ((mask-image: url("assets/gani-front-face-crowned-emblem.png")) or
+              (-webkit-mask-image: url("assets/gani-front-face-crowned-emblem.png"))) {
+  .front-face-pending .front-face-mark img {
+    opacity: 1 !important;
+    filter: contrast(1.08) saturate(.96) drop-shadow(0 2px 4px rgba(84,49,8,.18));
+  }
+}

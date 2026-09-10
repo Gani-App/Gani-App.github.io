@@ -23,7 +23,7 @@ The manifest uses the GANI name, 192px/512px/maskable icons, relative canonical 
 
 ## Release/update behavior
 
-`sw.js` is served with no-cache deployment guidance. The worker keeps the v41 cache identity, deletes older GANI caches on activation, calls `skipWaiting()` and `clients.claim()`, uses network-first navigation, and falls back to the cached app shell when offline. A future release changes the cache identity only when its asset set requires it; the public URL remains unchanged.
+`sw.js` is served with no-cache deployment guidance. The worker keeps the v44 cache identity, deletes older GANI caches on activation, calls `skipWaiting()` and `clients.claim()`, uses network-first navigation, and falls back to the cached app shell when offline. A future release changes the cache identity only when its asset set requires it; the public URL remains unchanged.
 
 ## Deployment-only requirement
 

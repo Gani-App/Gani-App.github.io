@@ -3,6 +3,7 @@ from pathlib import Path
 import hashlib, sys
 import json
 import re
+import os
 root=Path(__file__).resolve().parent
 CANONICAL="https://gani-app.github.io/"
 required=["index.html","install.html","download.html","manifest.webmanifest","sw.js",
@@ -18,9 +19,10 @@ missing=[x for x in required if not (root/x).is_file()]
 if missing:
     print("FAIL missing:", ", ".join(missing)); sys.exit(1)
 print("PASS required files")
-for x in required:
-    p=root/x
-    print(hashlib.sha256(p.read_bytes()).hexdigest(), x)
+if os.environ.get("GANI_VERIFY_HASHES") == "1":
+    for x in required:
+        p=root/x
+        print(hashlib.sha256(p.read_bytes()).hexdigest(), x)
 
 def fail(message):
     print("FAIL", message)
@@ -55,6 +57,21 @@ install=(root/"install.html").read_text(encoding="utf-8")
 download=(root/"download.html").read_text(encoding="utf-8")
 app=(root/"app.js").read_text(encoding="utf-8")
 sw=(root/"sw.js").read_text(encoding="utf-8")
+screen_ids=set(re.findall(r'<section\b[^>]*\bid="([^"]+)"', index))
+screen_targets=set(re.findall(r'data-screen="([^"]+)"', index))
+missing_targets=sorted(screen_targets-screen_ids)
+if missing_targets:
+    fail("visible navigation targets missing screens: " + ", ".join(missing_targets))
+if 'data-screen="about-gani"' not in index:
+    fail("About GANI screen must remain reachable from customer navigation")
+if 'id="terminalForm"' not in index or "No SSH keys, infrastructure credentials" not in index:
+    fail("terminal must expose an input boundary and credential-safety statement")
+if not all(marker in app for marker in ("terminalConnect", "terminalExecute", "terminalInterrupt")):
+    fail("terminal UI must use the authenticated provider boundary for connect, execute, and interrupt")
+if not all(marker in (root/"api-contract.json").read_text(encoding="utf-8") for marker in ("terminal/sessions", "terminal/sessions/{id}/commands", "terminal/sessions/{id}/interrupt")):
+    fail("API contract must document the terminal session boundary")
+if 'id="telegramOpen"' not in index or 'disabled aria-disabled="true"' not in index:
+    fail("Telegram action must remain disabled until configuration is verified")
 if f'<link rel="canonical" href="{CANONICAL}">' not in index:
     fail("index.html canonical URL is not the configured stable public URL")
 if CANONICAL not in index or CANONICAL not in install or CANONICAL not in download:
@@ -69,11 +86,33 @@ if "location.replace('./install.html')" not in download:
     fail("download.html must return to install.html")
 if "navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'})" not in app:
     fail("production service-worker registration must bypass stale script cache")
-if "CACHE='gani-app-v41'" not in sw or "self.skipWaiting()" not in sw or "self.clients.claim()" not in sw:
-    fail("service-worker v41 update lifecycle is incomplete")
+if "CACHE='gani-app-v44'" not in sw or "self.skipWaiting()" not in sw or "self.clients.claim()" not in sw:
+    fail("service-worker v44 update lifecycle is incomplete")
+if "url.origin!==self.location.origin" not in sw or "cacheable" not in sw or "cache:'no-store'" not in sw:
+    fail("service worker must avoid caching external or dynamic data responses")
+try:
+    status=json.loads((root/"gani-development-status.json").read_text(encoding="utf-8"))
+except Exception as exc:
+    fail(f"invalid development status JSON: {exc}")
+required_states={"queued","working","testing","fixing","completed","failed","blocked"}
+jobs=status.get("jobs") or {}
+if not required_states.issubset(jobs.keys()):
+    fail("development status must expose queued, working, testing, fixing, completed, failed, and blocked jobs")
+if not isinstance(status.get("currentJob"), dict) or not status["currentJob"].get("title"):
+    fail("development status must identify the current job")
+if not status.get("currentJob", {}).get("phase"):
+    fail("development status current job must identify its phase")
+if not isinstance(status.get("currentJob", {}).get("tests"), list):
+    fail("development status current job must expose its test results")
+for state in required_states:
+    if not isinstance(jobs[state], list):
+        fail(f"development status job bucket must be a list: {state}")
+if not isinstance(status.get("blockers", []), list):
+    fail("development status blockers must be a list")
 public_entry_files=index+install+download+app+sw
 for forbidden in (r"https?://localhost", r"https?://127\.0\.0\.1", r"https?://[^\"']*(?:preview|timestamp)"):
     if re.search(forbidden, public_entry_files, re.IGNORECASE):
         fail(f"public entry files contain forbidden public URL marker: {forbidden}")
 print("PASS manifest, canonical entry, PWA install, and update-flow checks")
+print("PASS visible navigation targets and terminal/Telegram safety boundaries")
 print("STATIC_RELEASE_ACCEPTANCE=PASS")

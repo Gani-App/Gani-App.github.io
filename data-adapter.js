@@ -71,6 +71,18 @@
 
     verify(reference) {
       return source().verify(reference);
+    },
+
+    terminalConnect(sessionId) {
+      return source().terminalConnect(sessionId);
+    },
+
+    terminalExecute(sessionId, command) {
+      return source().terminalExecute(sessionId, command);
+    },
+
+    terminalInterrupt(sessionId) {
+      return source().terminalInterrupt(sessionId);
     }
   };
 

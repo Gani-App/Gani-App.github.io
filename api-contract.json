@@ -37,6 +37,21 @@
       "method": "POST",
       "path": "/verify",
       "purpose": "submit verification request"
+    },
+    {
+      "method": "POST",
+      "path": "/terminal/sessions",
+      "purpose": "create or resume an authenticated user-scoped terminal session"
+    },
+    {
+      "method": "POST",
+      "path": "/terminal/sessions/{id}/commands",
+      "purpose": "execute one command inside the authorized workspace"
+    },
+    {
+      "method": "POST",
+      "path": "/terminal/sessions/{id}/interrupt",
+      "purpose": "interrupt the active command in the authorized session"
     }
   ],
   "excluded": [

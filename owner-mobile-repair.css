@@ -1,0 +1,146 @@
+/* Owner mobile repair: final compatibility layer for the existing shell. */
+:root{--owner-black:#050607;--owner-black-deep:#020303;--owner-gold:#d9ae58;--owner-gold-bright:#f3d88b;--owner-gold-line:rgba(217,174,88,.22)}
+*,*::before,*::after{box-sizing:border-box}
+html,body{width:100%;max-width:100%;min-width:0}html{background:var(--owner-black-deep)!important}body{background:linear-gradient(180deg,#020303 0,#050607 52%,#080909 100%)!important;color:#eeeae2;overflow-x:clip}
+body::before,body::after,main::before,main::after{display:none!important}img,svg,video,canvas{max-width:100%}
+main,.screen,.mission-dashboard,.mission-screen{width:100%;min-width:0;max-width:100%;background:transparent!important;border:0!important;outline:0!important}.screen{overflow-wrap:anywhere}.screen>*,.mission-dashboard>*,.mission-screen>*{min-width:0;max-width:100%}
+
+/* One continuous black surface. Panels provide quiet hierarchy without a bright frame. */
+.page-intro,.hero-card,.mobile-hero,.mobile-market,.mobile-command-strip article,.feature-card,.overview-card,.proof-row,.market-card,.panel,.loading-card,.verify-box,.verify-result,.education-grid article,.support-grid article,.profile-card,.workflow-strip,.metric-grid article,.quick-actions button,.mission-hero,.mission-panel,.mission-metrics article,.mission-quick-grid button,.more-grid button,.settings-list button,.workspace-lead,.workspace-boundary,.command-card,.home-status-band,.gani-install-banner{background:linear-gradient(145deg,#151515,#090a0a)!important;border-color:var(--owner-gold-line)!important;box-shadow:none!important}
+.page-intro,.hero-card,.mobile-hero{border-color:transparent!important}.page-intro::after,.hero-card::after,.hero-grid,.mobile-hero::before{opacity:0!important}.market-card::before,.bottom-nav button.active::after,.desktop-nav button::after{background:linear-gradient(90deg,transparent,var(--owner-gold),transparent)!important;box-shadow:none!important}
+.market-card .tag,.mode-pill,.mobile-welcome .mode-badge{background:rgba(217,174,88,.08)!important;border-color:var(--owner-gold-line)!important;color:#e2c77e!important}
+
+/* Header controls retain the crowned GANI mark and lose the old blue chrome. */
+.app-header{width:100%;max-width:100%;background:rgba(5,6,7,.98)!important;border-bottom:1px solid var(--owner-gold-line)!important}.app-header .brand img{filter:drop-shadow(0 0 12px rgba(217,174,88,.2))!important}
+.round-btn,.text-btn,.mobile-menu,.search-panel,.search-shell{background:#0a0b0c!important;border-color:var(--owner-gold-line)!important}.icon-search,.icon-bell{border-color:#d7c08b!important}.icon-search::after,.icon-bell::after{background:#d7c08b!important}.icon-menu,.icon-menu::after{border-color:#d7c08b!important}.mobile-menu button span{color:var(--owner-gold)!important}
+.primary{background:linear-gradient(135deg,var(--owner-gold-bright),#b9822e)!important;color:#171108!important;box-shadow:0 10px 28px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.32)!important}.secondary{background:rgba(217,174,88,.055)!important;border-color:var(--owner-gold-line)!important;color:#ead7a5!important}.card-link,.mobile-section-head button,.mobile-section-head small,.mobile-welcome h1 em,.mobile-hero-copy h2 em,.mobile-feature-grid .mi{color:var(--owner-gold)!important;filter:none!important}
+
+/* Fixed install CTA stays functional, compact, and clear of the navigation. */
+.install-dock{right:12px!important;left:auto!important;bottom:calc(86px + env(safe-area-inset-bottom))!important;width:auto!important;max-width:calc(100vw - 24px)!important;min-height:44px!important;padding:0 15px!important;border:1px solid rgba(217,174,88,.5)!important;border-radius:13px!important;background:linear-gradient(135deg,#17130c,#0b0b0a)!important;box-shadow:0 12px 28px rgba(0,0,0,.42)!important;color:var(--owner-gold-bright)!important;white-space:nowrap}
+
+/* Navigation uses gold only for the current destination. */
+.bottom-nav{left:8px!important;right:8px!important;width:auto!important;max-width:none!important;transform:none!important;background:rgba(10,11,12,.97)!important;border:1px solid var(--owner-gold-line)!important;box-shadow:0 16px 45px rgba(0,0,0,.45)!important}.bottom-nav button{min-width:0!important;color:#918f89!important}.bottom-nav button.active{color:var(--owner-gold-bright)!important;background:rgba(217,174,88,.1)!important}
+
+@media(max-width:760px){
+ body{padding-bottom:calc(92px + env(safe-area-inset-bottom))!important}main{padding:10px 12px 0!important;margin:0!important}.screen{padding:0 0 calc(102px + env(safe-area-inset-bottom))!important;min-height:0!important}.mission-dashboard,.mission-screen{padding-inline:0!important}.mobile-app-home{width:100%;max-width:100%;overflow:visible}.mobile-welcome,.mobile-section-head,.mission-topline,.mission-section-heading,.workspace-heading,.home-status-main,.home-status-details{min-width:0}.mobile-welcome>div,.mobile-section-head>*,.mission-topline>div,.workspace-heading>div,.home-status-main>div{min-width:0}.mobile-welcome h1,.mobile-hero-copy h2,.mission-dashboard h1,.mission-hero h2,.mission-page-head h2,.page-intro h2,.tool-copy h2{max-width:100%;overflow-wrap:anywhere}.mobile-hero{padding:20px 16px!important}.mobile-hero-copy{width:min(72%,280px)!important;max-width:100%}.mobile-hero img{right:-52px!important;max-width:205px}.mobile-trust{flex-wrap:wrap}.mobile-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.mobile-market-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}.mobile-market-grid article{min-width:0;padding:9px 7px;overflow-wrap:anywhere}.mission-actions,.workspace-actions,.ai-compose,.verify-row{min-width:0}.mission-actions>*,.workspace-actions>*,.verify-row>*{width:100%;max-width:100%;min-width:0}.home-status-band{display:block}.home-status-details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));justify-content:stretch;margin-top:10px;padding-top:10px;border-top:1px solid rgba(217,174,88,.12)}.home-status-details b,.home-status-details small{white-space:normal;overflow-wrap:anywhere}.home-status-link{white-space:normal}.bottom-nav{bottom:max(8px,env(safe-area-inset-bottom))!important}
+}
+@media(max-width:360px){main{padding-inline:8px!important}.mobile-hero-copy{width:76%!important}.mobile-hero-copy h2{font-size:28px!important}.mobile-market-grid{gap:5px}.mobile-market-grid article{font-size:9px}.bottom-nav{left:5px!important;right:5px!important}.bottom-nav button small{font-size:8px!important}}
+
+/* Owner visual system: final cascade pass over the legacy platform layers. */
+:root{
+ --owner-panel:#111211;
+ --owner-panel-deep:#090a0a;
+ --owner-muted:#a8a59d;
+ --owner-gold-soft:rgba(217,174,88,.16);
+}
+html,body{background:#050607!important;color:#eeeae2!important;overflow-x:hidden!important}
+body{background:linear-gradient(180deg,#020303 0,#050607 52%,#080909 100%)!important}
+main,.screen,.home-screen,.mission-dashboard,.mission-screen{background:transparent!important}
+.eyebrow,.app-kicker,.mobile-section-head small,.mobile-section-head button,.panel-head small,.page-intro .eyebrow{color:var(--owner-gold)!important}
+.mission-muted,.mobile-welcome p,.mobile-hero-copy p,.mobile-market-grid small,.mobile-command-strip small,.hint{color:var(--owner-muted)!important}
+
+/* Shared panel language: charcoal with a quiet warm edge, never a blue card. */
+.hero-card,.mobile-hero,.mobile-market,.mobile-command-strip article,.feature-card,.overview-card,.proof-row,
+.market-card,.panel,.loading-card,.verify-box,.verify-result,.education-grid article,.support-grid article,
+.profile-card,.workflow-strip,.metric-grid article,.quick-actions button,.mission-hero,.mission-panel,
+.mission-metrics article,.mission-quick-grid button,.more-grid button,.settings-list button,.workspace-lead,
+.workspace-boundary,.command-card,.home-status-band,.gani-install-banner,.mobile-feature-grid button,
+.mobile-insight,.mobile-market-grid article,.searchbox,.toolbar .mode-pill,.data-float{
+ background:linear-gradient(145deg,var(--owner-panel),var(--owner-panel-deep))!important;
+ border-color:var(--owner-gold-soft)!important;
+ box-shadow:none!important;
+}
+.hero-card,.mobile-hero,.page-intro{background-color:var(--owner-panel-deep)!important;background-image:none!important}
+.hero-card:after,.hero-grid,.mobile-hero:before,.feature-card:after{display:none!important}
+.market-card:before,.bottom-nav button.active:after,.desktop-nav button:after{background:linear-gradient(90deg,transparent,var(--owner-gold),transparent)!important;box-shadow:none!important}
+
+/* Header and controls stay neutral; gold is a restrained detail. */
+.app-header{background:#050607!important;border-bottom-color:var(--owner-gold-soft)!important}
+.app-header .brand img{filter:drop-shadow(0 0 12px rgba(217,174,88,.2))!important}
+.round-btn,.text-btn,.mobile-menu,.search-panel,.search-shell,.searchbox{background:#0a0b0c!important;border-color:var(--owner-gold-soft)!important}
+.round-btn:hover,.text-btn:hover,.secondary:hover,.mobile-menu button:hover{background:#12110e!important;border-color:rgba(217,174,88,.42)!important}
+.icon-search,.icon-bell{border-color:#d7c08b!important}.icon-search:after,.icon-bell:after{background:#d7c08b!important}
+.icon-menu,.icon-menu:after{border-color:#d7c08b!important}
+
+/* All primary actions use the approved warm metallic-gold treatment. */
+.primary,.install-dock{background:linear-gradient(135deg,#f3d88b 0%,#d9ae58 48%,#a86f22 100%)!important;color:#171108!important;border-color:rgba(255,232,166,.65)!important;box-shadow:0 10px 28px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.42)!important}
+.secondary{background:rgba(217,174,88,.055)!important;color:#ead7a5!important;border-color:var(--owner-gold-soft)!important}
+.mobile-hero-actions .primary,.mobile-hero-actions .secondary{min-width:0!important}
+.card-link,.mobile-feature-grid .mi,.quick-actions .quick-icon,.page-symbol{color:var(--owner-gold)!important;filter:none!important}
+
+/* Mobile shell: use the full viewport without a pasted sheet or clipped controls. */
+@media(max-width:760px){
+ main{width:100%!important;max-width:100%!important;padding-inline:12px!important}
+ .screen{width:100%!important;max-width:100%!important;overflow:visible!important}
+ .mobile-app-home{width:100%!important;max-width:100%!important;overflow:visible!important}
+ .mobile-hero{min-height:0!important;padding:20px 16px 74px!important;border-radius:20px!important}
+ .mobile-hero-copy{width:min(76%,280px)!important;max-width:100%!important}
+ .mobile-hero-copy h2{font-size:clamp(29px,9vw,42px)!important;overflow-wrap:anywhere!important}
+ .mobile-hero img{right:-46px!important;top:104px!important;width:58%!important;height:190px!important;filter:none!important;opacity:.72!important}
+ .mobile-hero-actions{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:8px!important}
+ .mobile-hero-actions .primary,.mobile-hero-actions .secondary{width:100%!important;height:48px!important;padding-inline:8px!important;font-size:12px!important}
+ .mobile-trust{background:#0a0b0c!important;border-top-color:var(--owner-gold-soft)!important}
+ .mobile-trust span{border-right-color:var(--owner-gold-soft)!important;color:var(--owner-muted)!important}
+ .mobile-feature-grid,.mobile-market-grid,.mission-quick-grid,.mission-metrics{min-width:0!important}
+ .mobile-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .mobile-market-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .mobile-market-grid article{min-width:0!important;overflow-wrap:anywhere!important}
+ .mobile-section-head{min-width:0!important}.mobile-section-head>*{min-width:0!important;max-width:100%!important;overflow-wrap:anywhere!important}
+ .bottom-nav{left:8px!important;right:8px!important;bottom:max(8px,env(safe-area-inset-bottom))!important;width:auto!important;max-width:calc(100vw - 16px)!important;height:72px!important;padding:6px!important;background:#0a0b0c!important;border-color:var(--owner-gold-soft)!important}
+ .bottom-nav button{min-width:0!important;color:#918f89!important;background:transparent!important}
+ .bottom-nav button.active{color:#f3d88b!important;background:rgba(217,174,88,.1)!important}
+ .bottom-nav button small{font-size:8px!important;white-space:nowrap!important}
+ .install-dock{right:12px!important;left:auto!important;bottom:calc(86px + env(safe-area-inset-bottom))!important;max-width:calc(100vw - 24px)!important}
+}
+@media(max-width:360px){
+ main{padding-inline:8px!important}
+ .mobile-hero-copy{width:78%!important}
+ .mobile-hero-copy h2{font-size:28px!important}
+ .mobile-market-grid{gap:5px!important}
+ .mobile-market-grid article{padding-inline:6px!important}
+ .bottom-nav{left:5px!important;right:5px!important;max-width:calc(100vw - 10px)!important}
+}
+
+/* Final mobile geometry: reserve one measured stack for the fixed install
+   action and five-destination navigation.  This intentionally comes last so
+   older platform layers cannot reintroduce overlap at narrow widths. */
+@media (max-width:760px){
+  :root{
+    --owner-nav-height:72px;
+    --owner-nav-bottom:max(8px,env(safe-area-inset-bottom));
+    --owner-fixed-clearance:152px;
+  }
+  html,body{width:100%;max-width:100%;overflow-x:hidden!important}
+  body{min-width:0!important;padding-bottom:calc(var(--owner-fixed-clearance) + env(safe-area-inset-bottom))!important}
+  main{width:100%!important;max-width:100%!important;min-width:0!important;margin:0!important;padding:10px 12px 0!important}
+  .screen{width:100%!important;max-width:100%!important;min-width:0!important;min-height:0!important;padding:0 0 calc(var(--owner-fixed-clearance) + env(safe-area-inset-bottom))!important;contain:none!important}
+  .screen>*{min-width:0!important;max-width:100%!important}
+  .mission-dashboard,.mission-screen,.mobile-app-home{width:100%!important;max-width:100%!important;min-width:0!important}
+  h1,h2,h3,h4,p,small,b,em,span{max-width:100%;overflow-wrap:anywhere}
+  img,svg,video,canvas{max-width:100%;height:auto}
+
+  .bottom-nav{
+    position:fixed!important;z-index:85!important;left:8px!important;right:8px!important;
+    bottom:var(--owner-nav-bottom)!important;width:auto!important;max-width:none!important;
+    height:var(--owner-nav-height)!important;min-height:0!important;padding:5px!important;
+    display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;
+    gap:2px!important;transform:none!important;overflow:hidden!important;
+  }
+  .bottom-nav button{width:100%!important;min-width:0!important;height:100%!important;padding:3px 1px!important;gap:4px!important;overflow:hidden!important}
+  .bottom-nav button span,.bottom-nav button small{display:block!important;max-width:100%!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:clip!important;line-height:1!important}
+  .bottom-nav button span{font-size:18px!important}
+  .bottom-nav button small{font-size:clamp(8px,2.35vw,10px)!important;letter-spacing:0!important}
+
+  .install-dock{
+    position:fixed!important;z-index:86!important;left:auto!important;right:12px!important;
+    bottom:calc(var(--owner-nav-bottom) + var(--owner-nav-height) + 12px)!important;
+    width:auto!important;max-width:calc(100vw - 24px)!important;min-height:44px!important;
+    padding:0 14px!important;border-radius:13px!important;white-space:nowrap!important;
+    font-size:12px!important;line-height:1!important;
+  }
+}
+@media (max-width:360px){
+  main{padding-inline:8px!important}
+  .bottom-nav{left:5px!important;right:5px!important}
+  .install-dock{right:8px!important;max-width:calc(100vw - 16px)!important;padding-inline:11px!important;font-size:11px!important}
+}
