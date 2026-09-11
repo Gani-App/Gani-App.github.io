@@ -1,0 +1,120 @@
+/*
+ * GANI install location policy:
+ * installation belongs inside More, never as a floating screen overlay.
+ */
+
+.more-install-area {
+  margin-top:14px;
+  padding:16px;
+  border:1px solid rgba(217,174,88,.22);
+  border-radius:17px;
+  background:linear-gradient(145deg,#151515,#090a0a);
+}
+
+.more-install-copy {
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+}
+
+.more-install-copy > span {
+  display:grid;
+  place-items:center;
+  flex:0 0 36px;
+  width:36px;
+  height:36px;
+  border:1px solid rgba(217,174,88,.35);
+  border-radius:12px;
+  color:#e5bd62;
+  font-size:18px;
+}
+
+.more-install-copy b,
+.more-install-copy small {
+  display:block;
+}
+
+.more-install-copy b {
+  color:#f3ead8;
+  font-size:14px;
+}
+
+.more-install-copy small {
+  margin-top:4px;
+  color:#8e9aaa;
+  font-size:10px;
+  line-height:1.45;
+}
+
+.more-install-slot {
+  margin-top:13px;
+}
+
+/*
+ * Defeat every legacy fixed/floating install-dock rule.
+ * This remains the SAME install element, merely relocated.
+ */
+.more-install-slot .install-dock,
+.more-install-slot .install-dock.ready,
+.install-dock.install-dock-in-more,
+.install-dock.install-dock-in-more.ready {
+  position:static !important;
+  inset:auto !important;
+  top:auto !important;
+  right:auto !important;
+  bottom:auto !important;
+  left:auto !important;
+
+  z-index:auto !important;
+
+  width:100% !important;
+  max-width:100% !important;
+  min-height:48px !important;
+
+  margin:0 !important;
+  padding:0 16px !important;
+
+  align-items:center !important;
+  justify-content:center !important;
+  gap:8px !important;
+
+  border-radius:14px !important;
+
+  white-space:normal !important;
+  text-align:center !important;
+
+  box-sizing:border-box !important;
+}
+
+/*
+ * Preserve the existing availability logic.
+ * Hidden until installation is actually available.
+ */
+.more-install-slot .install-dock:not(.ready) {
+  display:none !important;
+}
+
+.more-install-slot .install-dock.ready {
+  display:flex !important;
+}
+
+@media (max-width:760px) {
+  .more-install-area {
+    margin-top:10px;
+    padding:13px;
+    border-radius:15px;
+  }
+
+  .more-install-slot .install-dock.ready {
+    min-height:46px !important;
+    font-size:12px !important;
+  }
+
+  /*
+   * The Home page no longer needs giant padding reserved
+   * for a floating installation button.
+   */
+  .home-screen {
+    padding-bottom:calc(100px + env(safe-area-inset-bottom)) !important;
+  }
+}

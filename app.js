@@ -276,5 +276,20 @@ function bind(){
   window.addEventListener('hashchange',()=>show(location.hash.slice(1)||'home',false));
   window.addEventListener('popstate',()=>show(location.hash.slice(1)||'home',false));
 }
-window.addEventListener('DOMContentLoaded',async()=>{bind();initRiskPlanner();initWorkspace();initTerminal();initPreferences();initSupportRequest();updateMode();updateTelegram();const initialRoute=location.hash.slice(1)||'home';if(initialRoute!=='home'){document.body.classList.remove('front-face-pending');const frontFace=$('#ganiFrontFace');frontFace?.setAttribute('aria-hidden','true');if(frontFace)frontFace.inert=true}show(initialRoute,false);if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).catch(()=>{});const results=await Promise.all([loadMarket(),loadNotices(),loadAccounts(),loadProfile()]);setHomeLastChecked(results.slice(0,3).every(Boolean))});
+
+function initInstallLocation(){
+  const dock=$('.install-dock');
+  const slot=$('#moreInstallSlot');
+
+  if(!dock||!slot)return;
+
+  // Keep the existing working install element and its listeners.
+  // Only relocate it so installation is available in one intentional place.
+  slot.appendChild(dock);
+
+  dock.classList.add('install-dock-in-more');
+  dock.removeAttribute('style');
+}
+
+window.addEventListener('DOMContentLoaded',async()=>{bind();initInstallLocation();initRiskPlanner();initWorkspace();initTerminal();initPreferences();initSupportRequest();updateMode();updateTelegram();const initialRoute=location.hash.slice(1)||'home';if(initialRoute!=='home'){document.body.classList.remove('front-face-pending');const frontFace=$('#ganiFrontFace');frontFace?.setAttribute('aria-hidden','true');if(frontFace)frontFace.inert=true}show(initialRoute,false);if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).catch(()=>{});const results=await Promise.all([loadMarket(),loadNotices(),loadAccounts(),loadProfile()]);setHomeLastChecked(results.slice(0,3).every(Boolean))});
 })();
